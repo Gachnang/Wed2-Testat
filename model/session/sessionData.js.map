@@ -1,0 +1,1 @@
+{"version":3,"file":"sessionData.js","sourceRoot":"","sources":["sessionData.ts"],"names":[],"mappings":";;AAEA;;GAEG;AACH,MAAa,WAAW;IAEtB,IAAI,OAAO;QACT,OAAO,IAAI,CAAC,YAAY,CAAC,OAAO,CAAC;IACnC,CAAC;IAED,YAAY,YAA0B;QACpC,IAAI,CAAC,YAAY,GAAG,YAAY,CAAC;IACnC,CAAC;CACF;AATD,kCASC;AACD,kBAAe,WAAW,CAAC"}
