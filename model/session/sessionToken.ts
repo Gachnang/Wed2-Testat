@@ -1,4 +1,10 @@
+/***
+ * Representing the sessionId
+ */
 export class SessionToken {
+  /**
+   * Session
+   */
   _id: string;
   get session(): string {
     return this._id;
@@ -7,7 +13,14 @@ export class SessionToken {
     this._id = session;
   }
 
+  /**
+   * Date of creation
+   */
   created: Date;
+
+  /**
+   * Date of last seen user with this session
+   */
   lastseen: Date;
 
   constructor(session: string, created: Date = new Date()) {

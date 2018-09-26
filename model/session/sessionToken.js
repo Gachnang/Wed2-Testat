@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/***
+ * Representing the sessionId
+ */
 class SessionToken {
     get session() {
         return this._id;
