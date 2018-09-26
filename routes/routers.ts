@@ -1,7 +1,9 @@
 import * as express from 'express';
 
-import { router as indexRouter } from './index';
+import indexRouter from './index';
+import {SessionController} from "../controller/sessionController";
 
 export const router = express.Router();
 
-router.get('/', indexRouter);
+router.use('/', SessionController);
+router.all('/', indexRouter);

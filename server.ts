@@ -7,7 +7,6 @@ import * as cookieParser from 'cookie-parser';
 import * as createError from 'http-errors';
 
 import { router } from './routes/routers';
-import {SessionController} from "./controller/sessionController";
 
 const app = express();
 
@@ -22,7 +21,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(SessionController);
 
 app.use(router);
 

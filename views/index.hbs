@@ -1,2 +1,21 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<form method="post">
+  <button type="submit" name="option:filterFinished" value="">All</button>
+</form>
+
+<form method="post">
+  <button type="submit" name="option:filterFinished" value="true">Finished</button>
+</form>
+
+<form method="post">
+  <button type="submit" name="option:filterFinished" value="false">Not finished</button>
+</form>
+
+<br/>
+
+{{availableStyles availableStyles}}
+
+<div>
+  <h3>DEBUG:</h3>
+  {{DEBUG}}
+</div>

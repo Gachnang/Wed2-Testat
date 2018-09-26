@@ -1,70 +1,39 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const cookie = require("cookie");
-const sessionData_1 = require("../model/session/sessionData");
-const sessionTokenStore_1 = require("../model/session/sessionTokenStore");
+const session_1 = require("../model/session");
 const debug = require('debug')('SessionController');
 function SessionController(req, res, next) {
     // self-awareness
-    if (req.session) {
-        next();
+    if (!req.session) {
+        // load/create session
+        req.session = session_1.getSession(req);
     }
-    else {
-        // get session from cookie
-        let session = getCookie(req);
-        if (!session) {
-            debug('create new session..');
-            // no session: create
-            session = newSession();
-            setCookie(res, session);
-            sessionTokenStore_1.default.add(session, (err, sessionToken) => {
-                if (err) {
-                    next(err);
-                }
-                else if (sessionToken) {
-                    req.session = new sessionData_1.default(sessionToken);
-                    debug('session "' + session + '" created!');
-                    next();
-                }
-                else {
-                    next(new Error('Could not get new SessionToken...'));
-                }
-            });
+    // test body for changeOptionRequest
+    if (req.session && req.method === 'POST' && req.body && req.body !== {}) {
+        let mutated = false;
+        for (let fieldName of ['style', 'order', 'filterFinished']) {
+            if (typeof req.body['option:' + fieldName] !== 'undefined') {
+                debug('Update "' + fieldName +
+                    '" from "' + req.session[fieldName] +
+                    '" to "' + (req.body['option_' + fieldName] || null) + '"');
+                // property of Session is number(enum) or boolean/null
+                req.session[fieldName] = typeof req.session[fieldName] === 'number' ?
+                    // parse number
+                    Number.parseInt(req.body['option:' + fieldName], 10) :
+                    // parse boolean (null for emptyString)
+                    req.body['option:' + fieldName] === '' ? null :
+                        req.body['option:' + fieldName] === 'true';
+                // mutated!
+                mutated = true;
+            }
         }
-        else {
-            debug('load session..');
-            sessionTokenStore_1.default.get(session, (err, sessionToken) => {
-                if (err) {
-                    next(err);
-                }
-                else if (sessionToken) {
-                    req.session = new sessionData_1.default(sessionToken);
-                    debug('session "' + session + '" loaded! (lastseen: ' + sessionToken.lastseen.toString() + ')');
-                    // set lastSeen (we dont have to wait of finished update.. (undefined callback))
-                    sessionTokenStore_1.default.seen(session);
-                    next();
-                }
-                else {
-                    next(new Error('Could not get current SessionToken...'));
-                }
-            });
+        // save when mutated
+        if (mutated) {
+            req.session.save(res);
         }
     }
+    // i'm finished, next!
+    next();
 }
 exports.SessionController = SessionController;
-function getCookie(req) {
-    // Parse the cookies on the request
-    let cookies = cookie.parse(req.headers.cookie || '');
-    return cookies['session'];
-}
-function setCookie(res, session) {
-    // Set a new cookie with the name
-    res.setHeader('Set-Cookie', cookie.serialize('session', session, {
-        httpOnly: true,
-    }));
-}
-function newSession() {
-    // todo make a better session...
-    return (new Date()).getMilliseconds().toString(10);
-}
 //# sourceMappingURL=sessionController.js.map
