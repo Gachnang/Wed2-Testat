@@ -1,19 +1,29 @@
-<h1>{{title}}</h1>
-<form method="post">
-  <button type="submit" name="option:filterFinished" value="">All</button>
-</form>
+{{#if screenreader}}
+  <form method="post">
+    <button type="submit" name="option:screenreader" value="false">If you wanna see our selfmade combobox, click this button</button>
+  </form>
+{{else}}
+  <form class="screenreader" method="post">
+    <button type="submit" name="option:screenreader" value="true">If you have a screenreader, click this button.</button>
+  </form>
+{{/if}}
 
-<form method="post">
-  <button type="submit" name="option:filterFinished" value="true">Finished</button>
-</form>
+<div>
+  <form class="left" method="post">
+    <button type="submit" name="newNote" value="true">Create new note</button>
+  </form>
 
-<form method="post">
-  <button type="submit" name="option:filterFinished" value="false">Not finished</button>
-</form>
+  <div class="right">
+    {{availableStyles styleName screenreader}}
+    </label>
+  </div>
+</div>
 
-<br/>
-
-{{availableStyles availableStyles}}
+<div>
+  <div class="right">
+    {{filterFinished filter screenreader}}
+  </div>
+</div>
 
 <div>
   <h3>DEBUG:</h3>

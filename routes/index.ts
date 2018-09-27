@@ -12,8 +12,9 @@ export default router;
 router.all('/', function(req, res, next) {
   res.render('index', {
     title: 'Note Pro',
-    availableStyles: Style,
+    filter: req.session.filterFinished,
     styleName: Style[req.session.style],
+    screenreader: req.session.screenreader,
     DEBUG: JSON.stringify(req.session)
   } as IndexOptions);
 });

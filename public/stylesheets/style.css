@@ -1,9 +1,130 @@
+/* general styles *****************************************************/
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
+/* layout in horizontal line (row) */
+body > div {
+    display: block;
+    clear: both;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 100%
+}
+
+form {
+    display: inline-block;
+}
+
+/* element only visible for screenreader */
+.screenreader {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* float ***************************************************************/
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+/* button ***************************************************************/
 button {
-    background-color: var(--btn-color);
+    background-color: var(--btn-bg-color);
+    border-color: var(--btn-border-color);
+    height: 2em;
+    min-width: 8em;
+}
+
+button[disabled] {
+    color: var(--btn-text-color-disabled);
+    background-color: var(--btn-bg-color-disabled);
+    font-weight: bold;
+}
+
+/* select *************************************************************/
+select {
+    background-color: var(--btn-bg-color);
+    border-color: var(--btn-border-color);
+    display: inline-block;
+    position: relative;
+    min-width: 6em;
+}
+
+select[disabled] {
+    color: var(--btn-text-color-disabled);
+    background-color: var(--btn-bg-color-disabled);
+}
+
+/* comboBox ************************************************************/
+div.comboBox {
+    display: inline-block;
+    position: relative;
+    min-width: 8em;
+}
+
+/* arrow for comboBox */
+div.comboBox > button::after {
+    content: '';
+
+    border: solid var(--btn-border-color);
+    border-width: 0 0.3em 0.3em 0;
+    display: inline-block;
+    padding: 0.2em;
+
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+
+    position: absolute;
+    top: calc(50% - 0.6em);
+    right: 1em;
+}
+
+/* Flip arrow of comboBox */
+div.comboBox .content:hover ~ button::after,
+div.comboBox button:active .content + button::after,
+div.comboBox button:target .content + button::after {
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    top: calc(50% - 0.2em);
+}
+
+/* content of comboBox */
+div.comboBox .content {
+    display: none;
+    visibility: hidden;
+    padding: 3em 1em 1em;
+    position: absolute;
+    top: -1em;
+    left: -1em;
+    width: 100%;
+    z-index: 10;
+}
+
+/* keeps content of comboBox visible */
+div.comboBox .content:hover,
+div.comboBox:active .content,
+div.comboBox:target .content,
+div.comboBox button:active + .content,
+div.comboBox button:target + .content {
+    display: block;
+    visibility: visible;
+}
+
+/* make items in comboBox in list */
+div.comboBox .content form {
+    display: block;
+}
+
+/* style item of comboBox */
+div.comboBox button {
+    width: 100%;
+    text-align: left;
 }

@@ -1,4 +1,9 @@
 body {
     --bg-color: rgb(255,160,160);
-    --btn-color: rgb(255,100,100);
+    --text-color: rgb(60, 0, 0);
+
+    --btn-border-color: rgb(255, 60, 60);
+    --btn-bg-color: rgb(255,100,100);
+    --btn-text-color-disabled: rgb(80, 40, 40);
+    --btn-bg-color-disabled: rgb(220,40,40);
 }

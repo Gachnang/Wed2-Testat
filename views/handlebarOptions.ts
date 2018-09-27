@@ -5,6 +5,7 @@ export interface LayoutOptions {
 }
 
 export interface IndexOptions extends LayoutOptions {
-  availableStyles: any;
+  filter: boolean | null;
+  screenreader?: boolean;
   DEBUG: string;
 }

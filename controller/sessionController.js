@@ -11,7 +11,7 @@ function SessionController(req, res, next) {
     // test body for changeOptionRequest
     if (req.session && req.method === 'POST' && req.body && req.body !== {}) {
         let mutated = false;
-        for (let fieldName of ['style', 'order', 'filterFinished']) {
+        for (let fieldName of ['style', 'order', 'filterFinished', 'screenreader']) {
             if (typeof req.body['option:' + fieldName] !== 'undefined') {
                 debug('Update "' + fieldName +
                     '" from "' + req.session[fieldName] +

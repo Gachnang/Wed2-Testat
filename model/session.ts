@@ -10,11 +10,13 @@ export class Session {
   style: Style;
   order: Order;
   filterFinished: boolean | null;
+  screenreader: boolean;
 
-  constructor(style: Style = Style.White, order: Order = Order.priorityDesc, filterFinished: boolean = null) {
+  constructor(style: Style = Style.White, order: Order = Order.priorityDesc, filterFinished: boolean = null, screenreader: boolean = false) {
     this.style = style;
     this.order = order;
     this.filterFinished = filterFinished;
+    this.screenreader = screenreader;
   }
 
   save(res: Response) {

@@ -5,10 +5,11 @@ const order_1 = require("./order");
 const cookie = require("cookie");
 const debug = require('debug')('Session');
 class Session {
-    constructor(style = style_1.default.White, order = order_1.default.priorityDesc, filterFinished = null) {
+    constructor(style = style_1.default.White, order = order_1.default.priorityDesc, filterFinished = null, screenreader = false) {
         this.style = style;
         this.order = order;
         this.filterFinished = filterFinished;
+        this.screenreader = screenreader;
     }
     save(res) {
         setSession(res, this);

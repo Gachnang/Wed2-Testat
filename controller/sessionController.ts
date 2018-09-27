@@ -23,7 +23,7 @@ export function SessionController(req: Request, res: Response, next: NextFunctio
   if(req.session && req.method === 'POST' && req.body && req.body !== {}) {
     let mutated: boolean = false;
 
-    for(let fieldName of ['style', 'order', 'filterFinished']) {
+    for(let fieldName of ['style', 'order', 'filterFinished', 'screenreader']) {
       if (typeof req.body['option:' + fieldName] !== 'undefined') {
         debug(
           'Update "' + fieldName +

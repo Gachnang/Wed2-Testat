@@ -9,8 +9,9 @@ exports.default = exports.router;
 exports.router.all('/', function (req, res, next) {
     res.render('index', {
         title: 'Note Pro',
-        availableStyles: style_1.default,
+        filter: req.session.filterFinished,
         styleName: style_1.default[req.session.style],
+        screenreader: req.session.screenreader,
         DEBUG: JSON.stringify(req.session)
     });
 });
