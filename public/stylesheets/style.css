@@ -89,8 +89,11 @@ div.comboBox > button::after {
 
 /* Flip arrow of comboBox */
 div.comboBox .content:hover ~ button::after,
-div.comboBox button:active .content + button::after,
-div.comboBox button:target .content + button::after {
+div.comboBox .content:active ~ button::after,
+div.comboBox .content:focus ~ button::after,
+div.comboBox:active button::after,
+div.comboBox:focus button::after /*,
+div.comboBox:focus-within button::after*/ {
     transform: rotate(225deg);
     -webkit-transform: rotate(225deg);
     top: calc(50% - 0.2em);
@@ -100,10 +103,10 @@ div.comboBox button:target .content + button::after {
 div.comboBox .content {
     display: none;
     visibility: hidden;
-    padding: 3em 1em 1em;
+    padding: 2.5em 0.5em 0.5em;
     position: absolute;
-    top: -1em;
-    left: -1em;
+    top: -0.5em;
+    left: -0.5em;
     width: 100%;
     z-index: 10;
 }
@@ -111,9 +114,8 @@ div.comboBox .content {
 /* keeps content of comboBox visible */
 div.comboBox .content:hover,
 div.comboBox:active .content,
-div.comboBox:target .content,
-div.comboBox button:active + .content,
-div.comboBox button:target + .content {
+div.comboBox:focus .content /*,
+div.comboBox:focus-within .content*/ {
     display: block;
     visibility: visible;
 }
