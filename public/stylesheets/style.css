@@ -51,6 +51,11 @@ label {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
+/* not visible, but take up space */
+.hidden {
+    visibility: hidden;
+}
+
 /* float ***************************************************************/
 .left {
     float: left;
@@ -67,7 +72,8 @@ label {
     }
 }
 /* button ***************************************************************/
-button {
+button,
+textarea {
     font: inherit;
     background-color: var(--btn-bg-color);
     border-color: var(--btn-border-color);
@@ -75,7 +81,8 @@ button {
     min-width: 6rem;
 }
 
-button[disabled] {
+button[disabled],
+textarea[disabled] {
     color: var(--btn-text-color-disabled);
     background-color: var(--btn-bg-color-disabled);
     font-weight: bold;
@@ -100,6 +107,13 @@ select[disabled] {
         display: block;
         width: 100%;
     }
+}
+
+/* checkbox ************************************************************/
+input[type="checkbox"] {
+    height: 1rem;
+    width: 1rem;
+    margin: 0;
 }
 
 /* comboBox ************************************************************/
@@ -211,4 +225,127 @@ div.comboBox button {
     border-style: solid;
     border-width: 1rem 0 0 1rem;
     border-color: transparent var(--btn-border-color);
+}
+
+/* noteEntry ***********************************************************/
+.noteEntry {
+    margin-top: 0.75rem;
+    display: inline-block;
+    border-top: var(--btn-border-color) solid 0.1rem;
+}
+.noteEntry > main,
+.noteEntry > header {
+    clear: both;
+}
+
+.noteEntryTitle {
+    float: left;
+    min-width: 12rem;
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
+.noteEntryTimeLeft {
+    float: left;
+    min-width: 6rem;
+}
+
+.noteEntryFinished {
+    min-width: 6rem;
+    position: relative;
+}
+
+.noteEntryFinished:before {
+    content: '';
+    border: var(--btn-border-color) solid 0.1rem;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;top: 0.2rem;
+    margin-right: 0.2rem;
+    position: relative;
+}
+
+.noteEntryFinished[data-finished]:after {
+    content: 'X';
+    top: 0.3rem;
+    left: 0.25rem;
+    color: var(--text-color);
+    position: absolute;
+}
+
+.noteEntryDescription {
+    width: calc(100% - 10.5rem);
+    height: 5rem;
+    box-sizing: border-box;
+    border: var(--btn-border-color) solid 0.1rem;
+    word-wrap: break-word;
+    resize: vertical;
+    margin: 0;
+    padding: 0;
+}
+
+
+.noteEntryEdit {
+    height: 5rem;
+}
+
+.noteEntryEdit button {
+    height: 100%;
+    width: 100%;
+    min-width: 4rem;
+}
+
+@media screen and (max-width: 20rem) {
+    .noteEntryDescription {
+        width: calc(100% - 0.4rem);
+    }
+    .noteEntryEdit {
+        height: 2rem;
+    }
+}
+/* importance **********************************************************/
+/* test
+.importance {
+    display: table;
+    height: 2rem;
+}
+
+.importance .importanceSymbol {
+    display: table-cell;
+}*/
+
+.importance {
+    float: right;
+}
+
+span.importanceSymbol {
+    display: inline-block;
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+}
+
+.importanceSymbol:before {
+    content: '';
+    border-style: solid;
+    border-width: 1rem 0.6rem 0 0;
+    border-color: transparent var(--btn-border-color) transparent transparent;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0.6rem;
+    left: 0;
+    margin-right: -0.1rem;
+}
+
+.importanceSymbol:after {
+    content: '';
+    border-style: solid;
+    border-width: 1rem 0.6rem 0 0;
+    border-color: var(--btn-border-color) transparent;
+    display: inline-block;
+    position: relative;
+    margin-top: 0.4rem;
+    right: 0;
+    margin-left: -0.1rem;
 }

@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c305c055-6b0b-40a8-9be1-07f02c33f50f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/addController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/editController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/indexController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/note.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/note.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/note.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/model/note.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/note.ts" beforeDir="false" afterPath="$PROJECT_DIR$/model/note.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/Blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/Blue.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/Green.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/Green.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/Red.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/Red.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/White.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/White.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/edit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/edit.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/routes/edit.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/edit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/edit.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/routers.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/routers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/routers.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/routes/routers.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/routers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/routers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/edit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/edit.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -57,7 +36,7 @@
           <entry key="305" value="2" />
           <entry key="css" value="18" />
           <entry key="gitignoe" value="1" />
-          <entry key="hbs" value="20" />
+          <entry key="hbs" value="22" />
           <entry key="js" value="44" />
           <entry key="json" value="6" />
           <entry key="ts" value="130" />
@@ -67,7 +46,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="18" />
-          <entry key="Handlebars/Mustache" value="20" />
+          <entry key="Handlebars/Mustache" value="22" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="52" />
           <entry key="PLAIN_TEXT" value="1" />
@@ -82,17 +61,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="2361" />
-          <entry key="hbs" value="987" />
+          <entry key="css" value="3054" />
+          <entry key="hbs" value="1313" />
           <entry key="json" value="18" />
           <entry key="ts" value="15650" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="2361" />
+          <entry key="CSS" value="3054" />
           <entry key="HTML" value="1" />
-          <entry key="Handlebars/Mustache" value="987" />
+          <entry key="Handlebars/Mustache" value="1313" />
           <entry key="JSON" value="8" />
           <entry key="TypeScript" value="15649" />
           <entry key="tsconfig" value="10" />
@@ -106,95 +85,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="4" selection-start-line="1" selection-end-line="1" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/edit.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="35" lean-forward="true" selection-start-column="35" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/editController.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#76#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/addController.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="22" column="12" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#76#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/Green.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" selection-start-column="4" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/Blue.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" selection-start-column="4" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/note.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/Red.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" selection-start-column="4" selection-end-column="4" />
+            <state relative-caret-position="122">
+              <caret line="263" column="25" lean-forward="true" selection-start-line="263" selection-start-column="25" selection-end-line="263" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/White.css">
+        <entry file="file://$PROJECT_DIR$/views/index.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" selection-start-column="4" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/edit.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+            <state relative-caret-position="119">
+              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -259,7 +160,6 @@
         <option value="$PROJECT_DIR$/views/handlebarOptions.ts" />
         <option value="$PROJECT_DIR$/model/noteStore.ts" />
         <option value="$PROJECT_DIR$/views/handlebarHelpers.ts" />
-        <option value="$PROJECT_DIR$/views/index.hbs" />
         <option value="$PROJECT_DIR$/controller/indexController.ts" />
         <option value="$PROJECT_DIR$/routes/edit.ts" />
         <option value="$PROJECT_DIR$/routes/index.ts" />
@@ -268,11 +168,12 @@
         <option value="$PROJECT_DIR$/views/edit.hbs" />
         <option value="$PROJECT_DIR$/controller/addController.ts" />
         <option value="$PROJECT_DIR$/controller/editController.ts" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/Blue.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/Green.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/Red.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/White.css" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/views/index.hbs" />
       </list>
     </option>
   </component>
@@ -406,12 +307,12 @@
       <workItem from="1537895810717" duration="4617000" />
       <workItem from="1537900467505" duration="12405000" />
       <workItem from="1537949648500" duration="43749000" />
-      <workItem from="1538130897152" duration="27411000" />
+      <workItem from="1538130897152" duration="37527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106887000" />
+    <option name="totallyTimeSpent" value="117003000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -709,13 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/sessionController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -760,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/note.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/edit.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -791,13 +678,6 @@
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" selection-start-line="1" selection-end-line="1" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -826,6 +706,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/note.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="263" column="25" lean-forward="true" selection-start-line="263" selection-start-column="25" selection-end-line="263" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
         </state>
       </provider>
     </entry>
