@@ -6,21 +6,19 @@ var Order;
     Order[Order["finishedDesc"] = 1] = "finishedDesc";
     Order[Order["titleAsc"] = 2] = "titleAsc";
     Order[Order["titleDesc"] = 3] = "titleDesc";
-    Order[Order["descriptionAsc"] = 4] = "descriptionAsc";
-    Order[Order["descriptionDesc"] = 5] = "descriptionDesc";
-    Order[Order["createdAsc"] = 6] = "createdAsc";
-    Order[Order["createdDesc"] = 7] = "createdDesc";
-    Order[Order["priorityAsc"] = 8] = "priorityAsc";
-    Order[Order["priorityDesc"] = 9] = "priorityDesc";
+    Order[Order["createdAsc"] = 4] = "createdAsc";
+    Order[Order["createdDesc"] = 5] = "createdDesc";
+    Order[Order["importanceAsc"] = 6] = "importanceAsc";
+    Order[Order["importanceDesc"] = 7] = "importanceDesc";
 })(Order = exports.Order || (exports.Order = {}));
 exports.default = Order;
 function getComparator(order) {
     switch (order) {
-        case Order.priorityDesc: return (a, b) => {
-            return a.priority - b.priority;
+        case Order.importanceDesc: return (a, b) => {
+            return a.importance - b.importance;
         };
-        case Order.priorityAsc: return (a, b) => {
-            return b.priority - a.priority;
+        case Order.importanceAsc: return (a, b) => {
+            return b.importance - a.importance;
         };
         // todo make all comparators
         default: return null;

@@ -11,9 +11,12 @@ class NoteStore {
     constructor() {
         this._db = datastore;
     }
-    get(callback, order, finished) {
+    get(id, callback) {
+        this._db.findOne({ _id: id }, callback);
+    }
+    getAll(callback, order, finished) {
         if (typeof order === 'undefined') {
-            order = order_1.default.priorityDesc;
+            order = order_1.default.importanceDesc;
         }
         this._db.find(typeof finished === 'undefined' ?
             {} :

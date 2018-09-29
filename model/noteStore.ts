@@ -16,9 +16,13 @@ class NoteStore {
     this._db = datastore;
   }
 
-  get(callback: (err: Error, notes: Note[]) => void, order?: Order, finished?: boolean) {
+  get(id: string, callback: (err: Error, notes: Note) => void) {
+    this._db.findOne({_id: id}, callback);
+  }
+
+  getAll(callback: (err: Error, notes: Note[]) => void, order?: Order, finished?: boolean) {
     if (typeof order === 'undefined') {
-      order = Order.priorityDesc;
+      order = Order.importanceDesc;
     }
 
     this._db.find(

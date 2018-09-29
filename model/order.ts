@@ -7,24 +7,21 @@ export enum Order {
   titleAsc,
   titleDesc,
 
-  descriptionAsc,
-  descriptionDesc,
-
   createdAsc,
   createdDesc,
 
-  priorityAsc,
-  priorityDesc
+  importanceAsc,
+  importanceDesc
 }
 export default Order;
 
 export function getComparator(order: Order) : (a: Note, b: Note) => number | null {
   switch (order) {
-    case Order.priorityDesc: return (a: Note, b: Note) => {
-      return a.priority - b.priority;
+    case Order.importanceDesc: return (a: Note, b: Note) => {
+      return a.importance - b.importance;
     };
-    case Order.priorityAsc: return (a: Note, b: Note) => {
-      return b.priority - a.priority;
+    case Order.importanceAsc: return (a: Note, b: Note) => {
+      return b.importance - a.importance;
     };
 
     // todo make all comparators

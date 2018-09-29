@@ -25,10 +25,11 @@ export function SessionController(req: Request, res: Response, next: NextFunctio
 
     for(let fieldName of ['style', 'order', 'filterFinished', 'screenreader']) {
       if (typeof req.body['option:' + fieldName] !== 'undefined') {
+      //if(req.body['option:' + fieldName]) {
         debug(
           'Update "' + fieldName +
           '" from "' + req.session[fieldName] +
-          '" to "' + (req.body['option_' + fieldName] || null) + '"');
+          '" to "' + (req.body['option:' + fieldName] || null) + '"');
 
         // property of Session is number(enum) or boolean/null
         req.session[fieldName] = typeof req.session[fieldName] === 'number' ?
