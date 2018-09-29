@@ -3,11 +3,11 @@
     InputFields
   </div>
   <div>
-    {{#ifTwo note note._id}}
-      <button type="submit" name="_id" value="{{note._id}}">Save</button>
+    {{#if _id}}
+      <button type="submit" name="_id" value="{{_id}}">Save</button>
     {{else}}
       <button type="submit" name="_id">Add</button>
-    {{/ifTwo}}
+    {{/if}}
   </div>
 </form>
 <div>

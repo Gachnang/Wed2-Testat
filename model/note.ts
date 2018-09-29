@@ -7,7 +7,7 @@ export interface Note {
   importance: number;
 }
 
-export function toNote(obj: any): Note {
+export function bodyToNote(obj: any): Note {
   // @ts-ignore
   let ret: Note = {};
 
@@ -21,4 +21,8 @@ export function toNote(obj: any): Note {
   ret.importance = Number.parseInt(obj.importance, 10);
 
   return ret;
+}
+
+export function noteToBody(body: any, note: Note): any {
+  return Object.assign(body, note);
 }

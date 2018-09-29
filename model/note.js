@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function toNote(obj) {
+function bodyToNote(obj) {
     // @ts-ignore
     let ret = {};
     ret._id = obj._id;
@@ -13,5 +13,9 @@ function toNote(obj) {
     ret.importance = Number.parseInt(obj.importance, 10);
     return ret;
 }
-exports.toNote = toNote;
+exports.bodyToNote = bodyToNote;
+function noteToBody(body, note) {
+    return Object.assign(body, note);
+}
+exports.noteToBody = noteToBody;
 //# sourceMappingURL=note.js.map
