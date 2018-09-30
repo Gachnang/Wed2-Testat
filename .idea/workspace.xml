@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c305c055-6b0b-40a8-9be1-07f02c33f50f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/handlebarHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/handlebarHelpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/handlebarHelpers.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/views/handlebarHelpers.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/handlebarHelpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/views/handlebarHelpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,21 +43,21 @@
           <entry key="305" value="2" />
           <entry key="css" value="18" />
           <entry key="gitignoe" value="1" />
-          <entry key="hbs" value="22" />
+          <entry key="hbs" value="23" />
           <entry key="js" value="44" />
           <entry key="json" value="6" />
-          <entry key="ts" value="130" />
+          <entry key="ts" value="132" />
           <entry key="www" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="18" />
-          <entry key="Handlebars/Mustache" value="22" />
+          <entry key="Handlebars/Mustache" value="23" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="52" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="TypeScript" value="130" />
+          <entry key="TypeScript" value="132" />
           <entry key="tsconfig" value="4" />
         </counts>
       </usages-collector>
@@ -61,19 +68,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="3054" />
-          <entry key="hbs" value="1313" />
+          <entry key="css" value="3314" />
+          <entry key="hbs" value="1314" />
           <entry key="json" value="18" />
-          <entry key="ts" value="15650" />
+          <entry key="ts" value="15673" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="3054" />
+          <entry key="CSS" value="3314" />
           <entry key="HTML" value="1" />
-          <entry key="Handlebars/Mustache" value="1313" />
+          <entry key="Handlebars/Mustache" value="1314" />
           <entry key="JSON" value="8" />
-          <entry key="TypeScript" value="15649" />
+          <entry key="TypeScript" value="15672" />
           <entry key="tsconfig" value="10" />
         </counts>
       </usages-collector>
@@ -82,19 +89,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="263" column="25" lean-forward="true" selection-start-line="263" selection-start-column="25" selection-end-line="263" selection-end-column="25" />
+            <state relative-caret-position="178">
+              <caret line="194" column="21" lean-forward="true" selection-start-line="194" selection-start-column="21" selection-end-line="194" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/handlebarHelpers.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/layout.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#113#142#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="629">
               <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
             </state>
           </provider>
@@ -120,7 +161,13 @@
       <find>update</find>
       <find>22rem</find>
       <find>34rem</find>
+      <find>noteEntryTimeLeft</find>
+      <find>@media only screen</find>
+      <find>foc</find>
     </findStrings>
+    <replaceStrings>
+      <replace>400px</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -150,16 +197,13 @@
         <option value="$PROJECT_DIR$/model/options.ts" />
         <option value="$PROJECT_DIR$/model/session/order.ts" />
         <option value="$PROJECT_DIR$/model/style.ts" />
-        <option value="$PROJECT_DIR$/server.ts" />
         <option value="$PROJECT_DIR$/views/indexOptions.ts" />
         <option value="$PROJECT_DIR$/views/layoutOptions.ts" />
-        <option value="$PROJECT_DIR$/views/layout.hbs" />
         <option value="$PROJECT_DIR$/model/session.ts" />
         <option value="$PROJECT_DIR$/controller/sessionController.ts" />
         <option value="$PROJECT_DIR$/model/order.ts" />
         <option value="$PROJECT_DIR$/views/handlebarOptions.ts" />
         <option value="$PROJECT_DIR$/model/noteStore.ts" />
-        <option value="$PROJECT_DIR$/views/handlebarHelpers.ts" />
         <option value="$PROJECT_DIR$/controller/indexController.ts" />
         <option value="$PROJECT_DIR$/routes/edit.ts" />
         <option value="$PROJECT_DIR$/routes/index.ts" />
@@ -172,8 +216,11 @@
         <option value="$PROJECT_DIR$/public/stylesheets/Green.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/Red.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/White.css" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/views/index.hbs" />
+        <option value="$PROJECT_DIR$/server.ts" />
+        <option value="$PROJECT_DIR$/views/layout.hbs" />
+        <option value="$PROJECT_DIR$/views/handlebarHelpers.ts" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
       </list>
     </option>
   </component>
@@ -307,12 +354,12 @@
       <workItem from="1537895810717" duration="4617000" />
       <workItem from="1537900467505" duration="12405000" />
       <workItem from="1537949648500" duration="43749000" />
-      <workItem from="1538130897152" duration="37527000" />
+      <workItem from="1538130897152" duration="45612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117003000" />
+    <option name="totallyTimeSpent" value="125088000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -327,14 +374,14 @@
     <frame x="-7" y="33" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966952" weight="0.32991204" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7997356" visible="true" weight="0.398827" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.7997356" visible="true" weight="0.398827" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32937685" />
@@ -511,17 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#113#142#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/indexOptions.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/@types/handlebars/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -534,13 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="67" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -596,16 +625,6 @@
           <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/handlebarHelpers.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -716,17 +735,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+    <entry file="file://$PROJECT_DIR$/server.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="263" column="25" lean-forward="true" selection-start-line="263" selection-start-column="25" selection-end-line="263" selection-end-column="25" />
+        <state relative-caret-position="255">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#113#142#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="629">
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/handlebarHelpers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="194" column="21" lean-forward="true" selection-start-line="194" selection-start-column="21" selection-end-line="194" selection-end-column="21" />
         </state>
       </provider>
     </entry>

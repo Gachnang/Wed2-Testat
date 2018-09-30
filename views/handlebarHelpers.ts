@@ -11,6 +11,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('availableStyles')) {
         ) : (
           '<label>Style:</label>' +
           '<div class="comboBox">' +
+          '<button>' + styleName + '</button>' +
             '<div class="content">')
       )
     );
@@ -33,7 +34,6 @@ if(!hbs.handlebars.helpers.hasOwnProperty('availableStyles')) {
         '</select></label></form><button type="submit" form="formStyle">Apply style</button>'
       ) : (
           '</div>' +
-          '<button>' + styleName + '</button>' +
         '</div>')
       ) +
       '</div>');
@@ -58,6 +58,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('filterFinished')) {
         ) : (
           '<label>Show:</label>' +
           '<div class="comboBox">' +
+            '<button>' + (filter === null ? 'all' : filter === true ? 'finished' : 'not finished') + '</button>' +
             '<div class="content">' +
               '<form method="post">' +
                 '<button type="submit" name="option:filterFinished" value=""' + (filter === null ? ' disabled' : '') + '>all</button>' +
@@ -69,7 +70,6 @@ if(!hbs.handlebars.helpers.hasOwnProperty('filterFinished')) {
                 '<button type="submit" name="option:filterFinished" value="false" ' + (filter === false ?  'disabled ' : '') + '>not finished</button>' +
               '</form>' +
             '</div>' +
-            '<button>' + (filter === null ? 'all' : filter === true ? 'finished' : 'not finished') + '</button>' +
           '</div>'
         )
       ) + '</div>');

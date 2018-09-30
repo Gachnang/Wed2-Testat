@@ -1,9 +1,15 @@
 /* general styles *****************************************************/
 html {
-    font-size: 1rem;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 400 16px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
     color: var(--text-color);
+}
+
+@media (max-width: 740px) {
+    html { font-size: 15px; }
+}
+@media (max-width: 400px) {
+    html { font-size: 13px; }
 }
 
 /* layout in horizontal line (row) */
@@ -18,7 +24,7 @@ form {
     display: inline-block;
 }
 
-@media screen and (max-width: 20rem) {
+@media only screen and (max-width: 400px) {
     body > div > *:not(:last-child) {
         padding-bottom: 0.5rem;
     }
@@ -36,7 +42,7 @@ label {
     margin-right: 0.2rem;
 }
 
-@media screen and (max-width: 45rem) {
+@media only screen and (max-width: 740px) {
     label {
         display: block;
     }
@@ -65,13 +71,15 @@ label {
     float: right;
 }
 
-@media screen and (max-width: 20rem) {
+@media only screen and (max-width: 400px) {
     .left,
     .right {
         float: none;
     }
 }
 /* button ***************************************************************/
+input,
+select,
 button,
 textarea {
     font: inherit;
@@ -102,7 +110,7 @@ select[disabled] {
     background-color: var(--btn-bg-color-disabled);
 }
 
-@media screen and (max-width: 20rem) {
+@media only screen and (max-width: 400px) {
     select {
         display: block;
         width: 100%;
@@ -171,8 +179,8 @@ div.comboBox .content {
 
 /* keeps content of comboBox visible */
 div.comboBox .content:hover,
-div.comboBox:active .content,
-div.comboBox:focus .content /*,
+div.comboBox:active .content/*,
+div.comboBox:focus .content ,
 div.comboBox:focus-within .content*/ {
     display: block;
     visibility: visible;
@@ -189,6 +197,12 @@ div.comboBox button {
     text-align: left;
 }
 
+/* move disabled button over comboBox */
+div.comboBox button[disabled] {
+    position: absolute;
+    top: 0;
+}
+
 /* orders **************************************************************/
 .orders .content {
     display: inline-block;
@@ -199,7 +213,7 @@ div.comboBox button {
     min-width: 7.5rem;
 }
 
-@media screen and (max-width: 40rem) {
+@media only screen and (max-width: 740px) {
     .orders,
     .orders .content,
     .orders form,
@@ -247,12 +261,13 @@ div.comboBox button {
 
 .noteEntryTimeLeft {
     float: left;
-    min-width: 6rem;
+    min-width: 7rem;
 }
 
 .noteEntryFinished {
-    min-width: 6rem;
+    min-width: 7rem;
     position: relative;
+    padding-bottom: 0.2rem;
 }
 
 .noteEntryFinished:before {
@@ -274,7 +289,7 @@ div.comboBox button {
 }
 
 .noteEntryDescription {
-    width: calc(100% - 10.5rem);
+    width: calc(100% - 11.5rem);
     height: 5rem;
     box-sizing: border-box;
     border: var(--btn-border-color) solid 0.1rem;
@@ -283,7 +298,6 @@ div.comboBox button {
     margin: 0;
     padding: 0;
 }
-
 
 .noteEntryEdit {
     height: 5rem;
@@ -295,12 +309,16 @@ div.comboBox button {
     min-width: 4rem;
 }
 
-@media screen and (max-width: 20rem) {
+@media only screen and (max-width: 400px) {
     .noteEntryDescription {
-        width: calc(100% - 0.4rem);
+        width: 100%; /*calc(100% - 0.4rem);*/
     }
     .noteEntryEdit {
         height: 2rem;
+    }
+    .noteEntryTitle {
+        display: block;
+        width: 100%;
     }
 }
 /* importance **********************************************************/
