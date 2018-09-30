@@ -102,7 +102,7 @@ if (!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
         let timeLeft = getTimeLeft(note.date);
         ret += ('</div>' +
             '<div class="noteEntryTimeLeft">' + (timeLeft.value < 0 ? 'since ' + Math.abs(timeLeft.value) : 'in ' + timeLeft.value) + ' ' + timeLeft.unit + '</div>' +
-            '<div class="noteEntryTitle">' + note.title + '</div>' +
+            '<h4 class="noteEntryTitle">' + note.title + '</h4>' +
             '</header>' +
             '<main>' +
             '<div class="noteEntryFinished left"' + (note.finished ? 'data-finished>Finished' : '>Not finished') + '</div>' +

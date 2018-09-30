@@ -13,9 +13,8 @@ export interface IndexOptions extends LayoutOptions {
   DEBUG: string;
 }
 
-export interface EditOptions extends LayoutOptions {
+export interface EditOptions extends LayoutOptions, Note {
   screenreader?: boolean;
-  note: Note | null;
   DEBUG1: string;
   DEBUG2: string;
 }

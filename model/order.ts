@@ -46,7 +46,7 @@ export function getComparator(order: Order) : (a: Note, b: Note) => number | nul
     case Order.createdAsc: return (a: Note, b: Note) => {
       return b.title.localeCompare(a.title);
     };
-    
+
     default: return null;
   }
 }
