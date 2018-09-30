@@ -13,7 +13,8 @@ html {
 }
 
 /* layout in horizontal line (row) */
-body > div {
+body > header > div,
+body > main > div {
     display: block;
     clear: both;
     padding-top: 0.5rem;
@@ -25,7 +26,9 @@ form {
 }
 
 @media only screen and (max-width: 400px) {
-    body > div > *:not(:last-child) {
+    body > header > * > *:not(:last-child),
+    body > main > * > *:not(:last-child),
+    body > *:not(:last-child) {
         padding-bottom: 0.5rem;
     }
 
@@ -253,19 +256,20 @@ div.comboBox button[disabled] {
 }
 
 .noteEntryTitle {
-    float: left;
     min-width: 12rem;
     word-wrap: break-word;
     font-weight: bold;
+    margin-left: 8rem;
+    position: relative;
 }
 
 .noteEntryTimeLeft {
     float: left;
-    min-width: 7rem;
+    min-width: 8rem;
 }
 
 .noteEntryFinished {
-    min-width: 7rem;
+    min-width: 8rem;
     position: relative;
     padding-bottom: 0.2rem;
 }
@@ -282,14 +286,14 @@ div.comboBox button[disabled] {
 
 .noteEntryFinished[data-finished]:after {
     content: 'X';
-    top: 0.3rem;
+    top: 0.25rem;
     left: 0.25rem;
     color: var(--text-color);
     position: absolute;
 }
 
 .noteEntryDescription {
-    width: calc(100% - 11.5rem);
+    width: calc(100% - 12.5rem);
     height: 5rem;
     box-sizing: border-box;
     border: var(--btn-border-color) solid 0.1rem;
@@ -303,6 +307,7 @@ div.comboBox button[disabled] {
     height: 5rem;
 }
 
+.noteEntryEdit form,
 .noteEntryEdit button {
     height: 100%;
     width: 100%;
@@ -319,6 +324,8 @@ div.comboBox button[disabled] {
     .noteEntryTitle {
         display: block;
         width: 100%;
+        clear: both;
+        margin-left: 0;
     }
 }
 /* importance **********************************************************/

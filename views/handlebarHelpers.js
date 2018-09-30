@@ -77,4 +77,67 @@ if (!hbs.handlebars.helpers.hasOwnProperty('ifTwo')) {
         return (conditionOne && conditionTwo) ? options.fn(this) : options.inverse(this);
     });
 }
+if (!hbs.handlebars.helpers.hasOwnProperty('notesList')) {
+    hbs.handlebars.registerHelper('notesList', (notes, screenreader = false, options) => {
+        if (notes && Array.isArray(notes) && notes.length > 0) {
+            let ret = '';
+            for (let note of notes) {
+                ret += hbs.handlebars.helpers['notesEntry'](note, screenreader).toString();
+            }
+            return new hbs.handlebars.SafeString(ret);
+        }
+        else {
+            return new hbs.handlebars.SafeString('<div class="noNotes">No notes found</div>');
+        }
+    });
+}
+if (!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
+    hbs.handlebars.registerHelper('notesEntry', (note, screenreader = false) => {
+        let ret = ('<div class="noteEntry">' +
+            '<header>' +
+            '<div class="importance">');
+        for (let i = 0; i < note.importance; i++) {
+            ret += '<span class="importanceSymbol"></span>\n';
+        }
+        let timeLeft = getTimeLeft(note.date);
+        ret += ('</div>' +
+            '<div class="noteEntryTimeLeft">' + (timeLeft.value < 0 ? 'since ' + Math.abs(timeLeft.value) : 'in ' + timeLeft.value) + ' ' + timeLeft.unit + '</div>' +
+            '<div class="noteEntryTitle">' + note.title + '</div>' +
+            '</header>' +
+            '<main>' +
+            '<div class="noteEntryFinished left"' + (note.finished ? 'data-finished>Finished' : '>Not finished') + '</div>' +
+            '<textarea class="noteEntryDescription left" readonly>' + note.description + '</textarea>' +
+            '<div class="noteEntryEdit right">' +
+            '<form class="left" method="post" action="/edit">' +
+            '<button type="submit" name="_id" value="' + note._id + '">Edit</button>' +
+            '</form>' +
+            '</div>' +
+            '</main>' +
+            '</div>');
+        return new hbs.handlebars.SafeString(ret);
+    });
+}
+function getTimeLeft(date) {
+    let left = (date.valueOf() - new Date().valueOf()) / 1000;
+    let abs = left >= 0 ? 1 : -1;
+    left = Math.abs(left);
+    if (left < 60) {
+        return { value: Math.floor(abs * left), unit: 'seconds' };
+    }
+    else if ((left /= 60) < 60) {
+        return { value: Math.floor(abs * left), unit: 'minutes' };
+    }
+    else if ((left /= 60) < 24) {
+        return { value: Math.floor(abs * left), unit: 'hours' };
+    }
+    else if ((left /= 24) < 30) {
+        return { value: Math.floor(abs * left), unit: 'days' };
+    }
+    else if ((left /= 30) < 12) {
+        return { value: Math.floor(abs * left), unit: 'months' };
+    }
+    else {
+        return { value: Math.floor(abs * left), unit: 'years' };
+    }
+}
 //# sourceMappingURL=handlebarHelpers.js.map

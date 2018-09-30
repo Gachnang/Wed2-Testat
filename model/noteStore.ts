@@ -26,7 +26,7 @@ class NoteStore {
     }
 
     this._db.find(
-      typeof finished === 'undefined' ?
+      typeof finished === 'undefined' || finished === null ?
         {} :
         finished ?
           {finished: true} :
@@ -34,8 +34,8 @@ class NoteStore {
       (err: Error, notes: Note[]) => {
         if (Array.isArray(notes)) {
           notes.sort(getComparator(order));
-          callback(null, notes);
         }
+        callback(null, notes);
       });
   }
 

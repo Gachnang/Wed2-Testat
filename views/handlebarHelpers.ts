@@ -1,6 +1,7 @@
 import * as hbs from 'hbs';
 import { Style } from '../model/style';
 import { Order } from "../model/order";
+import {Note} from "../model/note";
 
 if(!hbs.handlebars.helpers.hasOwnProperty('availableStyles')) {
   hbs.handlebars.registerHelper('availableStyles', (styleName: string, screenreader: boolean = false) => {
@@ -121,4 +122,73 @@ if(!hbs.handlebars.helpers.hasOwnProperty('ifTwo')) {
   hbs.handlebars.registerHelper('ifTwo', (conditionOne: any, conditionTwo: any, options: any) => {
     return (conditionOne && conditionTwo) ? options.fn(this) : options.inverse(this);
   });
+}
+
+if(!hbs.handlebars.helpers.hasOwnProperty('notesList')) {
+  hbs.handlebars.registerHelper('notesList', (notes: Note[], screenreader: boolean = false, options: any) => {
+    if (notes && Array.isArray(notes) && notes.length > 0) {
+      let ret: string = '';
+      for (let note of notes) {
+        ret += hbs.handlebars.helpers['notesEntry'](note, screenreader).toString();
+      }
+      return new hbs.handlebars.SafeString(ret);
+    } else {
+      return new hbs.handlebars.SafeString('<div class="noNotes">No notes found</div>');
+    }
+  });
+}
+
+if(!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
+  hbs.handlebars.registerHelper('notesEntry', (note: Note, screenreader: boolean = false) => {
+    let ret: string = (
+      '<div class="noteEntry">' +
+        '<header>' +
+          '<div class="importance">');
+
+    for (let i = 0; i < note.importance; i++) {
+      ret += '<span class="importanceSymbol"></span>\n';
+    }
+
+    let timeLeft: {value: number, unit: string} = getTimeLeft(note.date);
+
+    ret += (
+          '</div>' +
+            '<div class="noteEntryTimeLeft">' + (timeLeft.value < 0 ? 'since '  + Math.abs(timeLeft.value) : 'in ' + timeLeft.value) + ' ' + timeLeft.unit + '</div>' +
+            '<div class="noteEntryTitle">' + note.title +'</div>' +
+          '</header>' +
+          '<main>' +
+            '<div class="noteEntryFinished left"' + (note.finished ? 'data-finished>Finished' : '>Not finished') + '</div>' +
+            '<textarea class="noteEntryDescription left" readonly>' + note.description + '</textarea>' +
+            '<div class="noteEntryEdit right">' +
+            '<form class="left" method="post" action="/edit">' +
+              '<button type="submit" name="_id" value="' + note._id + '">Edit</button>' +
+            '</form>' +
+          '</div>' +
+        '</main>' +
+      '</div>'
+    );
+
+    return new hbs.handlebars.SafeString(ret);
+  });
+}
+
+function getTimeLeft(date: Date): {value: number, unit: string} {
+  let left: number = (date.valueOf() - new Date().valueOf()) / 1000;
+  let abs = left >= 0 ? 1 : -1;
+  left = Math.abs(left);
+
+  if (left < 60) {
+    return { value: Math.floor(abs * left), unit: 'seconds' };
+  } else if ((left /= 60) < 60) {
+    return { value: Math.floor(abs * left), unit: 'minutes'};
+  } else if ((left /= 60) < 24) {
+    return { value: Math.floor(abs * left), unit: 'hours'};
+  } else if ((left /= 24) < 30) {
+    return { value: Math.floor(abs * left), unit: 'days'};
+  } else if ((left /= 30) < 12) {
+    return { value: Math.floor(abs * left), unit: 'months'};
+  } else {
+    return { value: Math.floor(abs * left), unit: 'years'};
+  }
+
 }

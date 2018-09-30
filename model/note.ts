@@ -3,6 +3,7 @@ export interface Note {
   title: string;
   description: string;
   date: Date;
+  created: Date;
   finished: boolean;
   importance: number;
 }

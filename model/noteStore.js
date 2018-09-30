@@ -18,15 +18,15 @@ class NoteStore {
         if (typeof order === 'undefined') {
             order = order_1.default.importanceDesc;
         }
-        this._db.find(typeof finished === 'undefined' ?
+        this._db.find(typeof finished === 'undefined' || finished === null ?
             {} :
             finished ?
                 { finished: true } :
                 { finished: false }, (err, notes) => {
             if (Array.isArray(notes)) {
                 notes.sort(order_1.getComparator(order));
-                callback(null, notes);
             }
+            callback(null, notes);
         });
     }
     insert(note, callback) {

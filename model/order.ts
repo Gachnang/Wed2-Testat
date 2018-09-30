@@ -24,8 +24,29 @@ export function getComparator(order: Order) : (a: Note, b: Note) => number | nul
       return b.importance - a.importance;
     };
 
-    // todo make all comparators
+    case Order.createdAsc: return (a: Note, b: Note) => {
+      return a.created.valueOf() - b.created.valueOf();
+    };
+    case Order.createdDesc: return (a: Note, b: Note) => {
+      return b.created.valueOf() - a.created.valueOf();
+    };
 
+    case Order.finishedDesc: return (a: Note, b: Note) => {
+      let comp: number = (a.finished ? 1 : 0) - (b.finished ? 1 : 0);
+      return comp !== 0 ? comp : a.date.valueOf() - b.date.valueOf();
+    };
+    case Order.finishedAsc: return (a: Note, b: Note) => {
+      let comp: number = (b.finished ? 1 : 0) - (a.finished ? 1 : 0);
+      return comp !== 0 ? comp : b.date.valueOf() - a.date.valueOf();
+    };
+
+    case Order.titleDesc: return (a: Note, b: Note) => {
+      return a.title.localeCompare(b.title);
+    };
+    case Order.createdAsc: return (a: Note, b: Note) => {
+      return b.title.localeCompare(a.title);
+    };
+    
     default: return null;
   }
 }

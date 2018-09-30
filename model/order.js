@@ -20,7 +20,26 @@ function getComparator(order) {
         case Order.importanceAsc: return (a, b) => {
             return b.importance - a.importance;
         };
-        // todo make all comparators
+        case Order.createdAsc: return (a, b) => {
+            return a.created.valueOf() - b.created.valueOf();
+        };
+        case Order.createdDesc: return (a, b) => {
+            return b.created.valueOf() - a.created.valueOf();
+        };
+        case Order.finishedDesc: return (a, b) => {
+            let comp = (a.finished ? 1 : 0) - (b.finished ? 1 : 0);
+            return comp !== 0 ? comp : a.date.valueOf() - b.date.valueOf();
+        };
+        case Order.finishedAsc: return (a, b) => {
+            let comp = (b.finished ? 1 : 0) - (a.finished ? 1 : 0);
+            return comp !== 0 ? comp : b.date.valueOf() - a.date.valueOf();
+        };
+        case Order.titleDesc: return (a, b) => {
+            return a.title.localeCompare(b.title);
+        };
+        case Order.createdAsc: return (a, b) => {
+            return b.title.localeCompare(a.title);
+        };
         default: return null;
     }
 }

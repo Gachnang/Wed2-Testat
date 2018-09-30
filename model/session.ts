@@ -12,7 +12,7 @@ export class Session {
   filterFinished: boolean | null;
   screenreader: boolean;
 
-  constructor(style: Style = Style.White, order: Order = Order.importanceDesc, filterFinished: boolean = null, screenreader: boolean = false) {
+  constructor(style: Style = Style.White, order: Order = Order.finishedDesc, filterFinished: boolean = null, screenreader: boolean = false) {
     this.style = style;
     this.order = order;
     this.filterFinished = filterFinished;
