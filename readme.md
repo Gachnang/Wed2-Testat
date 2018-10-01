@@ -2,7 +2,7 @@
   * Create new Note -> /notes/new
     * GET: empty form
     * POST: add new note
-  * Exit            -> /notes/edit/bvHo...
+  * Edit -> /notes/edit/bvHo...
     * GET: show note
     * PUT: update (btn: save)
   * By Importance     -> /?orderBy=importance
