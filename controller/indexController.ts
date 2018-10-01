@@ -11,7 +11,7 @@ export function indexController(req: Request, res: Response, next: NextFunction)
     } else {
       res.render('index', {
         title: 'Note Pro',
-        filter: req.session.filterFinished,
+        filter: req.session.filter,
         styleName: Style[req.session.style],
         order: req.session.order,
         screenreader: req.session.screenreader,
@@ -19,6 +19,6 @@ export function indexController(req: Request, res: Response, next: NextFunction)
         DEBUG: JSON.stringify(req.session)
       } as IndexOptions);
     }
-  }, req.session.order, req.session.filterFinished);
+  }, req.session.order, req.session.filter);
 }
 export default indexController;

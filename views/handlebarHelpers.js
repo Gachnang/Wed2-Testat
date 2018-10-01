@@ -5,13 +5,13 @@ const style_1 = require("../model/style");
 const order_1 = require("../model/order");
 if (!hbs.handlebars.helpers.hasOwnProperty('availableStyles')) {
     hbs.handlebars.registerHelper('availableStyles', (styleName, screenreader = false) => {
-        let ret = ('<div class="availableStyles">' + (screenreader ? ('<form method="post" id="formStyle"><label>Style:<select name="option:style">') : ('<label>Style:</label>' +
+        let ret = ('<div class="availableStyles">' + (screenreader ? ('<form method="get" id="formStyle"><label>Style:<select name="style">') : ('<label>Style:</label>' +
             '<div class="comboBox">' +
             '<button>' + styleName + '</button>' +
             '<div class="content">')));
         for (let entry in Object.keys(style_1.Style).filter(key => !isNaN(Number(style_1.Style[key])))) {
-            ret += screenreader ? ('<option value="' + entry + '"' + (style_1.Style[entry] == styleName ? ' selected="selected"' : '') + '>' + style_1.Style[entry] + '</option>') : ('<form method="post">' +
-                '<button type="submit" name="option:style" value="' + entry + '"' +
+            ret += screenreader ? ('<option value="' + entry + '"' + (style_1.Style[entry] == styleName ? ' selected="selected"' : '') + '>' + style_1.Style[entry] + '</option>') : ('<form method="get">' +
+                '<button type="submit" name="style" value="' + entry + '"' +
                 (style_1.Style[entry] == styleName ? 'disabled' : '') + '>' +
                 style_1.Style[entry] +
                 '</button>' +
@@ -22,11 +22,11 @@ if (!hbs.handlebars.helpers.hasOwnProperty('availableStyles')) {
             '</div>');
     });
 }
-if (!hbs.handlebars.helpers.hasOwnProperty('filterFinished')) {
-    hbs.handlebars.registerHelper('filterFinished', (filter, screenreader = false) => {
-        return new hbs.handlebars.SafeString('<div class="filterFinished">' + (screenreader ? ('<form id="formFilter" method="post">' +
+if (!hbs.handlebars.helpers.hasOwnProperty('filter')) {
+    hbs.handlebars.registerHelper('filter', (filter, screenreader = false) => {
+        return new hbs.handlebars.SafeString('<div class="filter">' + (screenreader ? ('<form id="formFilter" method="get">' +
             '<label>Show:' +
-            '<select name="option:filterFinished">' +
+            '<select name="filter">' +
             '<option value=""' + (filter === null ? ' selected="selected"' : '') + '>all</option>' +
             '<option value="true"' + (filter === true ? ' selected="selected"' : '') + '>finished</option>' +
             '<option value="false"' + (filter === false ? ' selected="selected"' : '') + '>not finished</option>' +
@@ -37,14 +37,14 @@ if (!hbs.handlebars.helpers.hasOwnProperty('filterFinished')) {
             '<div class="comboBox">' +
             '<button>' + (filter === null ? 'all' : filter === true ? 'finished' : 'not finished') + '</button>' +
             '<div class="content">' +
-            '<form method="post">' +
-            '<button type="submit" name="option:filterFinished" value=""' + (filter === null ? ' disabled' : '') + '>all</button>' +
+            '<form method="get">' +
+            '<button type="submit" name="filter" value=""' + (filter === null ? ' disabled' : '') + '>all</button>' +
             '</form>' +
-            '<form method="post">' +
-            '<button type="submit" name="option:filterFinished" value="true"' + (filter === true ? ' disabled ' : '') + '>finished</button>' +
+            '<form method="get">' +
+            '<button type="submit" name="filter" value="true"' + (filter === true ? ' disabled ' : '') + '>finished</button>' +
             '</form>' +
-            '<form method="post">\n' +
-            '<button type="submit" name="option:filterFinished" value="false" ' + (filter === false ? 'disabled ' : '') + '>not finished</button>' +
+            '<form method="get">\n' +
+            '<button type="submit" name="filter" value="false" ' + (filter === false ? 'disabled ' : '') + '>not finished</button>' +
             '</form>' +
             '</div>' +
             '</div>')) + '</div>');
@@ -52,14 +52,14 @@ if (!hbs.handlebars.helpers.hasOwnProperty('filterFinished')) {
 }
 if (!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
     hbs.handlebars.registerHelper('availableOrders', (currentOrder, screenreader = false) => {
-        let ret = ('<div class="orders left">' + (screenreader ? ('<form method="post" id="formOrder"><label>Order:<select name="option:order">') : ('<label>Order:</label><div class="content">')));
+        let ret = ('<div class="orders left">' + (screenreader ? ('<form method="get" id="formOrder"><label>Order:<select name="order">') : ('<label>Order:</label><div class="content">')));
         for (let entry in Object.keys(order_1.Order).filter(key => !isNaN(Number(order_1.Order[key])))) {
             if (!screenreader && order_1.Order[entry].endsWith('Desc')) {
                 let currentOrderEntry = order_1.Order[currentOrder].replace('Desc', '').replace('Asc', '');
                 let currentOrderType = order_1.Order[currentOrder].replace(currentOrderEntry, '');
                 let orderEntry = order_1.Order[entry].replace('Desc', '');
-                ret += '<form method="post">' +
-                    '<button type="submit" name="option:order" value="' + order_1.Order[(orderEntry +
+                ret += '<form method="get">' +
+                    '<button type="submit" name="order" value="' + order_1.Order[(orderEntry +
                     (currentOrderEntry === orderEntry ? (currentOrderType === 'Desc' ? 'Asc' : 'Desc') : ('Desc')))] + '"' +
                     (currentOrderEntry === orderEntry ? ' data-orderType="' + currentOrderType + '"' : '') + '>' + orderEntry + '</button>' +
                     '</form>';

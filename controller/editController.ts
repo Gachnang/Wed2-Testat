@@ -14,37 +14,37 @@ export function editController(req: Request, res: Response, next: NextFunction) 
       res.redirect('/');
     }
   }
-  if (req.body._id) {
-    if (req.body.save) {
-      let options = Object.assign(req.body, {
-        title: 'Note Pro - Edit',
-        note: bodyToNote(req.body),
-        styleName: Style[req.session.style],
-        screenreader: req.session.screenreader,
-        DEBUG1: JSON.stringify(req.session),
-        DEBUG2: JSON.stringify(req.body)
-      } as EditOptions);
+  if (req.params._id) {
+    if (req.method === 'PUT') {
+      let note: Note = bodyToNote(req.body);
 
-      // save failed.. re-render
-      res.render('edit', options);
-    } else {
-      noteStore.get(req.body._id, (err: Error, note: Note) => {
+      // save failed.. re-renderres.render('edit', {
+      //             title: 'Note Pro - Edit',
+      //             styleName: Style[req.session.style],
+      //             screenreader: req.session.screenreader,
+      //             note: note,
+      //             DEBUG1: JSON.stringify(req.session),
+      //             DEBUG2: JSON.stringify(req.body)
+      //           });
+      //         }
+    } else if (req.method === 'GET') {
+      noteStore.get(req.params._id, (err: Error, note: Note) => {
         if (err) {
           next(err);
         } else {
-          res.render('edit', noteToBody({
+          res.render('edit', {
             title: 'Note Pro - Edit',
             styleName: Style[req.session.style],
             screenreader: req.session.screenreader,
+            note: note,
             DEBUG1: JSON.stringify(req.session),
             DEBUG2: JSON.stringify(req.body)
-          } as EditOptions, note));
+          });
         }
       });
     }
   } else {
-    // _id is missing... Redirect to add
-    res.redirect('/add');
+    // not put or get...
   }
 }
 export default editController;

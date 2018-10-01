@@ -21,33 +21,12 @@
 
   <div>
     <div class="right">
-      {{filterFinished filter screenreader}}
+      {{filter filter screenreader}}
     </div>
     {{availableOrders order screenreader}}
   </div>
 </header>
 <main>
-  <!--
-  <div class="noteEntry">
-    <header>
-      <div class="importance right">
-        <span class="importanceSymbol"></span>
-        <span class="importanceSymbol"></span>
-        <span class="importanceSymbol"></span>
-        <span class="importanceSymbol"></span>
-        <span class="importanceSymbol"></span>
-      </div>
-      <div class="noteEntryTimeLeft">in 7 hours</div>
-      <div class="noteEntryTitle">BlubbBlubbBlubbBlubbBlubb</div>
-    </header>
-    <main>
-      <div class="noteEntryFinished left" data-finished>Finished</div>
-      <textarea class="noteEntryDescription left" readonly>bla bla bla</textarea>
-      <div class="noteEntryEdit right">
-        <button>Edit</button>
-      </div>
-    </main>
-  </div> -->
   {{notesList notes screenreader}}
 </main>
 

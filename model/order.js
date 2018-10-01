@@ -35,10 +35,11 @@ function getComparator(order) {
             return comp !== 0 ? comp : b.date.valueOf() - a.date.valueOf();
         };
         case Order.titleDesc: return (a, b) => {
-            return a.title.localeCompare(b.title);
+            //return a.title.localeCompare(b.title);
+            return a.title === b.title ? 0 : a.title > b.title ? 1 : -1;
         };
-        case Order.createdAsc: return (a, b) => {
-            return b.title.localeCompare(a.title);
+        case Order.titleAsc: return (a, b) => {
+            return a.title === b.title ? 0 : a.title > b.title ? -1 : 1;
         };
         default: return null;
     }

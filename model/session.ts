@@ -3,19 +3,18 @@ import Order from "./order";
 import {Request, Response} from "express-serve-static-core";
 import * as cookie from "cookie";
 
-
 const debug: (msg?: string) => void = require('debug')('Session');
 
 export class Session {
   style: Style;
   order: Order;
-  filterFinished: boolean | null;
+  filter: boolean | null;
   screenreader: boolean;
 
-  constructor(style: Style = Style.White, order: Order = Order.finishedDesc, filterFinished: boolean = null, screenreader: boolean = false) {
+  constructor(style: Style = Style.White, order: Order = Order.finishedDesc, filter: boolean = null, screenreader: boolean = false) {
     this.style = style;
     this.order = order;
-    this.filterFinished = filterFinished;
+    this.filter = filter;
     this.screenreader = screenreader;
   }
 
@@ -44,9 +43,9 @@ function repairSession(session: Session) {
     debug('SetSession: repair "screenreader" ("' + session.screenreader + '")');
     session.screenreader = false;
   }
-  if (session.filterFinished !== null && typeof session.filterFinished !== 'boolean') {
-    debug('SetSession: repair "filterFinished" ("' + session.filterFinished + '")');
-    session.filterFinished = null;
+  if (session.filter !== null && typeof session.filter !== 'boolean') {
+    debug('SetSession: repair "filter" ("' + session.filter + '")');
+    session.filter = null;
   }
   if (typeof session.order !== 'number' || typeof Order[session.order] === 'undefined') {
     debug('SetSession: repair "order" ("' + session.order + '")');

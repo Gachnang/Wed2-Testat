@@ -10,7 +10,7 @@ function indexController(req, res, next) {
         else {
             res.render('index', {
                 title: 'Note Pro',
-                filter: req.session.filterFinished,
+                filter: req.session.filter,
                 styleName: style_1.default[req.session.style],
                 order: req.session.order,
                 screenreader: req.session.screenreader,
@@ -18,7 +18,7 @@ function indexController(req, res, next) {
                 DEBUG: JSON.stringify(req.session)
             });
         }
-    }, req.session.order, req.session.filterFinished);
+    }, req.session.order, req.session.filter);
 }
 exports.indexController = indexController;
 exports.default = indexController;

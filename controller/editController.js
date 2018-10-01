@@ -13,39 +13,39 @@ function editController(req, res, next) {
             res.redirect('/');
         }
     }
-    if (req.body._id) {
-        if (req.body.save) {
-            let options = Object.assign(req.body, {
-                title: 'Note Pro - Edit',
-                note: note_1.bodyToNote(req.body),
-                styleName: style_1.default[req.session.style],
-                screenreader: req.session.screenreader,
-                DEBUG1: JSON.stringify(req.session),
-                DEBUG2: JSON.stringify(req.body)
-            });
-            // save failed.. re-render
-            res.render('edit', options);
+    if (req.params._id) {
+        if (req.method === 'PUT') {
+            let note = note_1.bodyToNote(req.body);
+            // save failed.. re-renderres.render('edit', {
+            //             title: 'Note Pro - Edit',
+            //             styleName: Style[req.session.style],
+            //             screenreader: req.session.screenreader,
+            //             note: note,
+            //             DEBUG1: JSON.stringify(req.session),
+            //             DEBUG2: JSON.stringify(req.body)
+            //           });
+            //         }
         }
-        else {
-            noteStore_1.default.get(req.body._id, (err, note) => {
+        else if (req.method === 'GET') {
+            noteStore_1.default.get(req.params._id, (err, note) => {
                 if (err) {
                     next(err);
                 }
                 else {
-                    res.render('edit', note_1.noteToBody({
+                    res.render('edit', {
                         title: 'Note Pro - Edit',
                         styleName: style_1.default[req.session.style],
                         screenreader: req.session.screenreader,
+                        note: note,
                         DEBUG1: JSON.stringify(req.session),
                         DEBUG2: JSON.stringify(req.body)
-                    }, note));
+                    });
                 }
             });
         }
     }
     else {
-        // _id is missing... Redirect to add
-        res.redirect('/add');
+        // not put or get...
     }
 }
 exports.editController = editController;

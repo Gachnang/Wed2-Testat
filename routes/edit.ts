@@ -7,4 +7,4 @@ export const router: core.Router = express.Router();
 export default router;
 
 router.all('/add', addController);
-router.all('/edit', editController);
+router.all('/edit/:_id', editController);

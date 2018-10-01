@@ -5,10 +5,10 @@ const order_1 = require("./order");
 const cookie = require("cookie");
 const debug = require('debug')('Session');
 class Session {
-    constructor(style = style_1.default.White, order = order_1.default.finishedDesc, filterFinished = null, screenreader = false) {
+    constructor(style = style_1.default.White, order = order_1.default.finishedDesc, filter = null, screenreader = false) {
         this.style = style;
         this.order = order;
-        this.filterFinished = filterFinished;
+        this.filter = filter;
         this.screenreader = screenreader;
     }
     save(res) {
@@ -37,9 +37,9 @@ function repairSession(session) {
         debug('SetSession: repair "screenreader" ("' + session.screenreader + '")');
         session.screenreader = false;
     }
-    if (session.filterFinished !== null && typeof session.filterFinished !== 'boolean') {
-        debug('SetSession: repair "filterFinished" ("' + session.filterFinished + '")');
-        session.filterFinished = null;
+    if (session.filter !== null && typeof session.filter !== 'boolean') {
+        debug('SetSession: repair "filter" ("' + session.filter + '")');
+        session.filter = null;
     }
     if (typeof session.order !== 'number' || typeof order_1.default[session.order] === 'undefined') {
         debug('SetSession: repair "order" ("' + session.order + '")');
