@@ -7,6 +7,8 @@ import * as cookieParser from 'cookie-parser';
 import * as createError from 'http-errors';
 
 import { router } from './routes/routers';
+import noteStore from "./model/noteStore";
+import {Note} from "./model/note";
 
 const app = express();
 
@@ -39,6 +41,22 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+/** DEBUG: remove afterwards!! *
+noteStore.getAll((err: Error, notes: Note[]) => {
+  if (!notes || notes.length === 0) {
+    noteStore.insert({
+      title: 'Debug test entry bla blubb',
+      description: 'this is just a testEntry bla blubb',
+      finished: true,
+      importance: 3,
+      date: new Date()}, () => {});
+  }
+});
+/**/
+
 
 const hostname = '127.0.0.1';
 const port = 3000;

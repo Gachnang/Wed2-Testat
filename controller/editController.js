@@ -4,29 +4,28 @@ const note_1 = require("../model/note");
 const style_1 = require("../model/style");
 const noteStore_1 = require("../model/noteStore");
 function editController(req, res, next) {
-    if (req.body && req.body.save) {
-        // user clicked "save" btn: add the new note
+    if (req.method === 'PUT' && req.params._id && req.body.save) {
         let note = note_1.bodyToNote(req.body);
-        // todo
-        // if everything is okey, redirect to index.  (in callback of noteStore.update(...))
-        if (true) {
-            res.redirect('/');
-        }
+        noteStore_1.default.update(note, (err, note) => {
+            if (err) {
+                // save failed.. re-render
+                res.render('edit', {
+                    title: 'Note Pro - Edit',
+                    styleName: style_1.default[req.session.style],
+                    screenreader: req.session.screenreader,
+                    note: note,
+                    error: err,
+                    DEBUG1: JSON.stringify(req.session),
+                    DEBUG2: JSON.stringify(req.body)
+                });
+            }
+            else {
+                res.redirect('/');
+            }
+        });
     }
-    if (req.params._id) {
-        if (req.method === 'PUT') {
-            let note = note_1.bodyToNote(req.body);
-            // save failed.. re-renderres.render('edit', {
-            //             title: 'Note Pro - Edit',
-            //             styleName: Style[req.session.style],
-            //             screenreader: req.session.screenreader,
-            //             note: note,
-            //             DEBUG1: JSON.stringify(req.session),
-            //             DEBUG2: JSON.stringify(req.body)
-            //           });
-            //         }
-        }
-        else if (req.method === 'GET') {
+    else if (req.method === 'GET') {
+        if (req.params._id) {
             noteStore_1.default.get(req.params._id, (err, note) => {
                 if (err) {
                     next(err);
@@ -43,9 +42,16 @@ function editController(req, res, next) {
                 }
             });
         }
-    }
-    else {
-        // not put or get...
+        else {
+            res.render('edit', {
+                title: 'Note Pro - Add',
+                styleName: style_1.default[req.session.style],
+                screenreader: req.session.screenreader,
+                note: {},
+                DEBUG1: JSON.stringify(req.session),
+                DEBUG2: JSON.stringify(req.body)
+            });
+        }
     }
 }
 exports.editController = editController;

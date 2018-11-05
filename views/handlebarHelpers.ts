@@ -3,6 +3,15 @@ import { Style } from '../model/style';
 import { Order } from "../model/order";
 import {Note} from "../model/note";
 
+if(!hbs.handlebars.helpers.hasOwnProperty('valOrEmpty')) {
+  hbs.handlebars.registerHelper('valOrEmpty', (val: any) => {
+    if (typeof val === 'undefined' || val === null) {
+      return new hbs.handlebars.SafeString('');
+    }
+    return new hbs.handlebars.SafeString(val.toString());
+  });
+}
+
 if(!hbs.handlebars.helpers.hasOwnProperty('availableStyles')) {
   hbs.handlebars.registerHelper('availableStyles', (styleName: string, screenreader: boolean = false) => {
     let ret: string = (
@@ -190,5 +199,5 @@ function getTimeLeft(date: Date): {value: number, unit: string} {
   } else {
     return { value: Math.floor(abs * left), unit: 'years'};
   }
-
 }
+

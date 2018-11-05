@@ -1,7 +1,30 @@
 <form method="post">
+  {{#if note}}
+    <input type="hidden" name="_method" value="put" />
+  {{else}}
+    <input type="hidden" name="_method" value="post" />
+  {{/if}}
+
   <div>
-    InputFields
+    <label>Title:<input type="text" name="titel" value="{{valOrEmpty note.title}}"></label>
   </div>
+
+  <div>
+    <label>Description:<textarea name="description">{{valOrEmpty note.description}}</textarea></label>
+  </div>
+
+  <div>
+    <label>Importance:<input type="number" max="5" min="1" name="importance" value="{{valOrEmpty note.importance}}"></label>
+  </div>
+
+  <div>
+    <label>Date:<input type="date" name="date" value="{{valOrEmpty note.date}}"></label>
+  </div>
+
+  <div>
+    <label>Finished<input type="checkbox" name="finished" value="{{valOrEmpty note.finished}}"></label>
+  </div>
+
   <div>
     {{#if _id}}
       <button type="submit" name="_id" value="{{_id}}">Save</button>

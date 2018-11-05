@@ -3,6 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const hbs = require("hbs");
 const style_1 = require("../model/style");
 const order_1 = require("../model/order");
+if (!hbs.handlebars.helpers.hasOwnProperty('valOrEmpty')) {
+    hbs.handlebars.registerHelper('valOrEmpty', (val) => {
+        if (typeof val === 'undefined' || val === null) {
+            return new hbs.handlebars.SafeString('');
+        }
+        return new hbs.handlebars.SafeString(val.toString());
+    });
+}
 if (!hbs.handlebars.helpers.hasOwnProperty('availableStyles')) {
     hbs.handlebars.registerHelper('availableStyles', (styleName, screenreader = false) => {
         let ret = ('<div class="availableStyles">' + (screenreader ? ('<form method="get" id="formStyle"><label>Style:<select name="style">') : ('<label>Style:</label>' +
