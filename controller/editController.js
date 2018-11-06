@@ -4,7 +4,7 @@ const note_1 = require("../model/note");
 const style_1 = require("../model/style");
 const noteStore_1 = require("../model/noteStore");
 function editController(req, res, next) {
-    if (req.method === 'PUT' && req.params._id && req.body.save) {
+    if (req.method === 'POST' && req.params._id && req.body.save) {
         let note = note_1.bodyToNote(req.body);
         noteStore_1.default.update(note, (err, note) => {
             if (err) {

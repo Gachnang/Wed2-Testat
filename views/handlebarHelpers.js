@@ -85,13 +85,7 @@ if (!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
                     '>' + order_1.Order[entry] + '</option>';
             }
         }
-        return new hbs.handlebars.SafeString(ret); /* + (
-          screenreader ? (
-            '</select></label></form><button type="submit" form="formOrder">Apply order</button>'
-          ) : (
-            '</div>'
-          )
-        ) + '</div>');*/
+        return new hbs.handlebars.SafeString(ret + (screenreader ? '</select></label></form><button type="submit" form="formOrder">Apply order</button>' : ''));
     });
 }
 if (!hbs.handlebars.helpers.hasOwnProperty('ifTwo')) {
@@ -127,10 +121,10 @@ if (!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
             '<h4 class="noteEntryTitle">' + note.title + '</h4>' +
             '</header>' +
             '<main>' +
-            '<div class="noteEntryFinished left"' + (note.finished ? 'data-finished>Finished' : '>Not finished') + '</div>' +
-            '<textarea class="noteEntryDescription left" readonly>' + note.description + '</textarea>' +
+            '<div class="noteEntryFinished"' + (note.finished ? 'data-finished>Finished' : '>Not finished') + '</div>' +
+            '<textarea class="noteEntryDescription" readonly>' + note.description + '</textarea>' +
             '<div class="noteEntryEdit right">' +
-            '<form class="left" method="post" action="/edit">' +
+            '<form method="post" action="/edit">' +
             '<button type="submit" name="_id" value="' + note._id + '">Edit</button>' +
             '</form>' +
             '</div>' +
