@@ -88,7 +88,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('filter')) {
 
 if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
   hbs.handlebars.registerHelper('availableOrders', (currentOrder: Order, screenreader: boolean = false) => {
-    let ret: string = (
+    let ret: string = ''; /*(
       '<div class="orders left">' + (
         screenreader ? (
           '<form method="get" id="formOrder"><label>Order:<select name="order">'
@@ -96,7 +96,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
           '<label>Order:</label><div class="content">'
         )
       )
-    );
+    );*/
 
     for (let entry in Object.keys(Order).filter(key => !isNaN(Number(Order[key])))) {
       if (!screenreader && Order[entry].endsWith('Desc')) {
@@ -117,13 +117,13 @@ if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
       }
     }
 
-    return new hbs.handlebars.SafeString(ret + (
+    return new hbs.handlebars.SafeString(ret);/* + (
       screenreader ? (
         '</select></label></form><button type="submit" form="formOrder">Apply order</button>'
       ) : (
         '</div>'
       )
-    ) + '</div>');
+    ) + '</div>');*/
   });
 }
 

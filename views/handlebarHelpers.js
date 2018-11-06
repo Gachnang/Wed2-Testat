@@ -60,7 +60,15 @@ if (!hbs.handlebars.helpers.hasOwnProperty('filter')) {
 }
 if (!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
     hbs.handlebars.registerHelper('availableOrders', (currentOrder, screenreader = false) => {
-        let ret = ('<div class="orders left">' + (screenreader ? ('<form method="get" id="formOrder"><label>Order:<select name="order">') : ('<label>Order:</label><div class="content">')));
+        let ret = ''; /*(
+          '<div class="orders left">' + (
+            screenreader ? (
+              '<form method="get" id="formOrder"><label>Order:<select name="order">'
+            ) : (
+              '<label>Order:</label><div class="content">'
+            )
+          )
+        );*/
         for (let entry in Object.keys(order_1.Order).filter(key => !isNaN(Number(order_1.Order[key])))) {
             if (!screenreader && order_1.Order[entry].endsWith('Desc')) {
                 let currentOrderEntry = order_1.Order[currentOrder].replace('Desc', '').replace('Asc', '');
@@ -77,7 +85,13 @@ if (!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
                     '>' + order_1.Order[entry] + '</option>';
             }
         }
-        return new hbs.handlebars.SafeString(ret + (screenreader ? ('</select></label></form><button type="submit" form="formOrder">Apply order</button>') : ('</div>')) + '</div>');
+        return new hbs.handlebars.SafeString(ret); /* + (
+          screenreader ? (
+            '</select></label></form><button type="submit" form="formOrder">Apply order</button>'
+          ) : (
+            '</div>'
+          )
+        ) + '</div>');*/
     });
 }
 if (!hbs.handlebars.helpers.hasOwnProperty('ifTwo')) {
