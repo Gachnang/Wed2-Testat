@@ -5,11 +5,68 @@ html {
     color: var(--text-color);
 }
 
-@media (max-width: 740px) {
-    html { font-size: 15px; }
+#head-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
-@media (max-width: 400px) {
+
+.createBtn {
+    grid-column: 1 / 3;
+}
+
+.styleBtn {
+    grid-column: 1 / 3;
+}
+
+.filterBtn {
+    grid-column: 1 / 3;
+}
+
+.showBtn {
+    grid-column: 1 / 3;
+}
+
+@media (min-width: 400px) {
     html { font-size: 13px; }
+
+    .createBtn {
+        grid-column: 1 ;
+    }
+
+    .styleBtn {
+        grid-column: 2;
+        justify-self: end;
+    }
+
+    .filterBtn {
+        grid-column: 1 / 3;
+    }
+
+    .showBtn {
+        grid-column: 1 / 3;
+    }
+
+
+}
+
+@media (min-width: 740px) {
+    html { font-size: 15px; }
+    .createBtn {
+        grid-column: 1;
+    }
+
+    .styleBtn {
+        grid-column: 2;
+    }
+
+    .filterBtn {
+        grid-column: 1;
+    }
+
+    .showBtn {
+        grid-column: 2;
+        justify-self: end;
+    }
 }
 
 /* layout in horizontal line (row) */

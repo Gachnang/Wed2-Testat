@@ -1,31 +1,37 @@
 <header>
-  {{#if screenreader}}
-    <form method="post">
-      <button type="submit" name="option:screenreader" value="false">If you wanna see our selfmade controls, click this button</button>
-    </form>
-  {{else}}
-    <form class="screenreader" method="post">
-      <button type="submit" name="option:screenreader" value="true">If you have a screenreader, click this button.</button>
-    </form>
-  {{/if}}
+<div id="head-grid">
+    {{#if screenreader}}
+        <form method="post">
+            <button type="submit" name="option:screenreader" value="false">If you wanna see our selfmade controls, click
+                this button
+            </button>
+        </form>
+    {{else}}
+        <form class="screenreader" method="post">
+            <button type="submit" name="option:screenreader" value="true">If you have a screenreader, click this
+                button.
+            </button>
+        </form>
+    {{/if}}
 
-  <div>
-    <form class="left" method="post" action="/add">
-      <button type="submit" name="newNote" value="true">Create new note</button>
-    </form>
-
-    <div class="right">
-      {{availableStyles styleName screenreader}}
+    <div class="createBtn">
+        <form class="left" method="post" action="/add">
+            <button type="submit" name="newNote" value="true">Create new note</button>
+        </form>
     </div>
-  </div>
-
-  <div>
-    <div class="right">
-      {{filter filter screenreader}}
+    <div class="styleBtn">
+        {{availableStyles styleName screenreader}}
     </div>
-    {{availableOrders order screenreader}}
-  </div>
+    <div class="filterBtn">
+        {{availableOrders order screenreader}}
+    </div>
+    <div class="showBtn">
+        {{filter filter screenreader}}
+    </div>
+</div>
 </header>
+
+
 <main>
   {{notesList notes screenreader}}
 </main>
