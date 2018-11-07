@@ -82,20 +82,59 @@ form {
     display: inline-block;
 }
 
-@media only screen and (max-width: 400px) {
-    body > header > * > *:not(:last-child),
-    body > main > * > *:not(:last-child),
-    body > *:not(:last-child) {
-        padding-bottom: 0.5rem;
-    }
+header, main {
+    display: grid;
+}
 
-    form,
-    button,
-    .comboBox {
-        display: block;
-        width: 100%;
+/* noteEntry *****/
+.noteEntry .importance {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.noteEntry .noteEntryDescription,
+.noteEntry .noteEntryEdit form,
+.noteEntry .noteEntryEdit form > button {
+    width: 100%;
+    height: 100%;
+    min-width: 4rem;
+    min-height: 2rem;
+}
+
+.noteEntry .noteEntryDescription {
+    min-height: 6rem;
+}
+.noteEntry {
+    display: grid;
+}
+.noteEntry > header,
+.noteEntry > main {
+    grid-gap: 0.2rem;
+}
+
+@media only screen and (min-width: 400px) {
+    .noteEntry > header,
+    .noteEntry > main {
+        grid-template-columns: 8rem auto fit-content(2rem);
+    }
+    .noteEntry > header > .noteEntryTimeLeft,
+    .noteEntry > main > .noteEntryFinished {
+        grid-area: 1 / 1 / 1 / 1;
+    }
+    .noteEntry > header > .noteEntryTitle,
+    .noteEntry > main > .noteEntryDescription {
+        grid-area: 1 / 2 / 1 / 2;
+    }
+    .noteEntry > header > .importance,
+    .noteEntry > main > .noteEntryEdit  {
+        grid-area: 1 / 3 / 1 / 3;
     }
 }
+
+
+
+
+
 
 label {
     display: inline-block;
@@ -122,21 +161,6 @@ label {
     visibility: hidden;
 }
 
-/* float ***************************************************************/
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
-@media only screen and (max-width: 400px) {
-    .left,
-    .right {
-        float: none;
-    }
-}
 /* button ***************************************************************/
 input,
 select,
@@ -316,12 +340,10 @@ div.comboBox button[disabled] {
     min-width: 12rem;
     word-wrap: break-word;
     font-weight: bold;
-    margin: 0 0 0 8rem;
-    position: relative;
+    margin: 0 0 0 0;
 }
 
 .noteEntryTimeLeft {
-    float: left;
     min-width: 8rem;
 }
 
@@ -360,31 +382,6 @@ div.comboBox button[disabled] {
     padding: 0;
 }
 
-.noteEntryEdit {
-    height: 5rem;
-}
-
-.noteEntryEdit form,
-.noteEntryEdit button {
-    height: 100%;
-    width: 100%;
-    min-width: 4rem;
-}
-
-@media only screen and (max-width: 400px) {
-    .noteEntryDescription {
-        width: 100%; /*calc(100% - 0.4rem);*/
-    }
-    .noteEntryEdit {
-        height: 2rem;
-    }
-    .noteEntryTitle {
-        display: block;
-        width: 100%;
-        clear: both;
-        margin-left: 0;
-    }
-}
 /* importance **********************************************************/
 /* test
 .importance {
@@ -397,7 +394,6 @@ div.comboBox button[disabled] {
 }*/
 
 .importance {
-    float: right;
 }
 
 span.importanceSymbol {

@@ -5,7 +5,7 @@ import {EditOptions} from "../views/handlebarOptions";
 import noteStore from "../model/noteStore";
 
 export function editController(req: Request, res: Response, next: NextFunction) {
-  if (req.method === 'PUT' && req.params._id && req.body.save) {
+  if (req.method === 'POST' && req.params._id && req.body.save) {
     let note: Note = bodyToNote(req.body);
 
     noteStore.update(note, (err: Error, note: Note) => {
