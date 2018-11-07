@@ -1,44 +1,48 @@
-<form method="get">
-  {{#if note}}
-    <input type="hidden" name="_method" value="put" />
-  {{else}}
-    <input type="hidden" name="_method" value="get" />
-  {{/if}}
+<header>
+    <h1>Add new todo</h1>
+</header>
+<main>
 
-  <div>
-    <label>Title:<input type="text" name="titel" value="{{valOrEmpty note.title}}"></label>
-  </div>
+    <form method="get" class="todoNew">
+        {{#if note}}
+            <input type="hidden" name="_method" value="put"/>
+        {{else}}
+            <input type="hidden" name="_method" value="get"/>
+        {{/if}}
 
-  <div>
-    <label>Description:<textarea name="description">{{valOrEmpty note.description}}</textarea></label>
-  </div>
 
-  <div>
-    <label>Importance:<input type="number" max="5" min="1" name="importance" value="{{valOrEmpty note.importance}}"></label>
-  </div>
+        <label class="todoKey">Title:</label>
+        <input type="text" name="titel" value="{{valOrEmpty note.title}}" class="todoValue">
 
-  <div>
-    <label>Date:<input type="date" name="date" value="{{valOrEmpty note.date}}"></label>
-  </div>
+        <label class="todoKey">Description:</label>
+        <textarea name="description" class="todoValue">{{valOrEmpty note.description}}</textarea>
 
-  <div>
-    <label>Finished<input type="checkbox" name="finished" value="{{valOrEmpty note.finished}}"></label>
-  </div>
+        <label class="todoKey">Importance:</label>
+        <input type="number" max="5" min="1" name="importance"
+                                     value="{{valOrEmpty note.importance}}" class="todoValue">
 
-  <div>
-    {{#if _id}}
-      <button type="submit" name="_id" value="{{_id}}">Save</button>
-    {{else}}
-      <button type="submit" name="_id">Add</button>
-    {{/if}}
-  </div>
-</form>
-<div>
-  <h3>DEBUG1:</h3>
-  {{DEBUG1}}
-</div>
+        <label class="todoKey">Date:</label>
+        <input type="date" name="date" value="{{valOrEmpty note.date}}" class="todoValue">
 
-<div>
-  <h3>DEBUG2</h3>
-  {{DEBUG2}}
-</div>
+        <label class="todoValue">Finished
+            <input type="checkbox" name="finished" value="{{valOrEmpty note.finished}}" class="todoValue"></label>
+
+        <div class="todoValue">
+            {{#if _id}}
+                <button type="submit" name="_id" value="{{_id}}">Save</button>
+            {{else}}
+                <button type="submit" name="_id">Add</button>
+                <button type="submit" name="_id">Cancel</button>
+            {{/if}}
+        </div>
+    </form>
+    <div>
+        <h3>DEBUG1:</h3>
+        {{DEBUG1}}
+    </div>
+
+    <div>
+        <h3>DEBUG2</h3>
+        {{DEBUG2}}
+    </div>
+</main>

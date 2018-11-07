@@ -5,6 +5,11 @@ html {
     color: var(--text-color);
 }
 
+h1 {
+    color: grey;
+    border-bottom: solid 2px grey;
+}
+
 #head-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -426,4 +431,41 @@ span.importanceSymbol {
     margin-top: 0.4rem;
     right: 0;
     margin-left: -0.1rem;
+}
+
+/* new todo_styles *****************************************************/
+.todoNew {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 16px;
+}
+
+.todoKey {
+    grid-column: 1 / 3;
+}
+
+.todoValue{
+    grid-column: 1 / 3;
+}
+
+
+
+label {
+    font-weight: bold;
+}
+
+@media (min-width: 400px) {
+    html { font-size: 13px; }
+
+
+    .todoKey {
+        grid-column: 1 / 2;
+        justify-self: end;
+    }
+
+    .todoValue{
+        grid-column: 2 / 3;
+    }
+
+
 }
