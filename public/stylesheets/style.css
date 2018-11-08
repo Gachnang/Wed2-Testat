@@ -312,7 +312,7 @@ div.comboBox button[disabled] {
     }
 }
 
-.orders button[data-ordertype="Desc"]::before {
+button[data-ordertype="Desc"]::before {
     content: '';
     float: right;
     margin-left: 0.2rem;
@@ -321,7 +321,7 @@ div.comboBox button[disabled] {
     border-color: transparent transparent var(--btn-border-color);
 }
 
-.orders button[data-ordertype="Asc"]::before {
+button[data-ordertype="Asc"]::before {
     content: '';
     float: right;
     margin-left: 0.2rem;
