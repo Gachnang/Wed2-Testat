@@ -74,7 +74,7 @@ if (!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
                 let currentOrderEntry = order_1.Order[currentOrder].replace('Desc', '').replace('Asc', '');
                 let currentOrderType = order_1.Order[currentOrder].replace(currentOrderEntry, '');
                 let orderEntry = order_1.Order[entry].replace('Desc', '');
-                ret += '<form method="get">' +
+                ret += '<form method="post">' +
                     '<button type="submit" name="order" value="' + order_1.Order[(orderEntry +
                     (currentOrderEntry === orderEntry ? (currentOrderType === 'Desc' ? 'Asc' : 'Desc') : ('Desc')))] + '"' +
                     (currentOrderEntry === orderEntry ? ' data-orderType="' + currentOrderType + '"' : '') + '>' + orderEntry + '</button>' +
@@ -124,7 +124,7 @@ if (!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
             '<div class="noteEntryFinished"' + (note.finished ? 'data-finished>Finished' : '>Not finished') + '</div>' +
             '<textarea class="noteEntryDescription" readonly>' + note.description + '</textarea>' +
             '<div class="noteEntryEdit right">' +
-            '<form method="post" action="/edit">' +
+            '<form method="get" action="/edit/' + note._id + '">' +
             '<button type="submit" name="_id" value="' + note._id + '">Edit</button>' +
             '</form>' +
             '</div>' +

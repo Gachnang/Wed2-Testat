@@ -10,6 +10,7 @@ require('../views/handlebarHelpers');
 export const router = express.Router();
 export default router;
 
+// all use SessionController
 router.use('/', SessionController);
 router.all('/', indexRouter);
-router.all('/:method', editRouter);
+router.all('/*', editRouter);
