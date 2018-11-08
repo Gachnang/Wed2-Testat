@@ -15,15 +15,37 @@ export function bodyToNote(obj: any): Note {
   ret._id = obj._id;
   ret.title = obj.title;
   ret.description = obj.description;
-  // todo wrong cast from string to date?
-  // @ts-ignore
-  ret.date = Date.parse(obj._id) as Date;
+  ret.date = new Date(Date.parse(obj.date));
   ret.finished = !!obj.finished;
   ret.importance = Number.parseInt(obj.importance, 10);
+  ret.created = new Date();
 
   return ret;
 }
 
 export function noteToBody(body: any, note: Note): any {
   return Object.assign(body, note);
+}
+
+export function validate(note: Note): string[] {
+  let ret = [];
+  if (typeof note.title === 'undefined' || note.title.length === 0) {
+    ret.push("title");
+  }
+  if (typeof note.description === 'undefined' || note.description.length === 0) {
+    ret.push("description");
+  }
+  if (typeof note.date !== 'object' || isNaN(note.date.getTime())) {
+    ret.push("date");
+  }
+  if (typeof note.importance === 'undefined' || isNaN(note.importance) || note.importance < 1 || note.importance > 5) {
+    ret.push("importance");
+  }
+  if (typeof note.finished !== 'boolean') {
+    ret.push("finished");
+  }
+  if (typeof note.created !== 'object' || isNaN(note.created.getTime())) {
+    ret.push("created");
+  }
+  return ret;
 }

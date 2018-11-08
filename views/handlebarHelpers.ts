@@ -8,6 +8,9 @@ if(!hbs.handlebars.helpers.hasOwnProperty('valOrEmpty')) {
     if (typeof val === 'undefined' || val === null) {
       return new hbs.handlebars.SafeString('');
     }
+    if (typeof val === 'object' && !isNaN((val as Date).getTime())) {
+      return new hbs.handlebars.SafeString((val as Date).toISOString().substring(0, 10));
+    }
     return new hbs.handlebars.SafeString(val.toString());
   });
 }
@@ -104,7 +107,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
         let currentOrderType: string = Order[currentOrder].replace(currentOrderEntry, '');
         let orderEntry: string = Order[entry].replace('Desc', '');
 
-        ret += '<form method="post">' +
+        ret += '<form method="get">' +
             '<button type="submit" name="order" value="' + Order[(orderEntry +
             (currentOrderEntry === orderEntry ? (currentOrderType === 'Desc' ? 'Asc' : 'Desc' ) : ('Desc'))
           )]  + '"' +
@@ -166,7 +169,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
             '<textarea class="noteEntryDescription" readonly>' + note.description + '</textarea>' +
             '<div class="noteEntryEdit right">' +
             '<form method="get" action="/edit/' + note._id + '">' +
-              '<button type="submit" name="_id" value="' + note._id + '">Edit</button>' +
+              '<button type="submit">Edit</button>' +
             '</form>' +
           '</div>' +
         '</main>' +

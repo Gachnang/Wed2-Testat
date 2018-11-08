@@ -45,8 +45,13 @@ class NoteStore {
                 if (err) {
                     callback(err, null);
                 }
-                else if (numberOfUpdated > 0 && Array.isArray(affectedDocuments) && affectedDocuments.length > 0) {
-                    callback(null, affectedDocuments[0]);
+                else if (numberOfUpdated > 0) {
+                    if (Array.isArray(affectedDocuments) && affectedDocuments.length > 0) {
+                        callback(null, affectedDocuments[0]);
+                    }
+                    else {
+                        callback(null, note);
+                    }
                 }
                 else {
                     callback(new Error('Update failed: No entries got updated.'), null);

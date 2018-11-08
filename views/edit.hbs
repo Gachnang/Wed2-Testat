@@ -3,7 +3,7 @@
 </header>
 <main>
 
-    <form method="get" class="todoNew">
+    <form method="post" class="todoNew">
         {{#if note}}
             <input type="hidden" name="_method" value="put"/>
         {{else}}
@@ -12,7 +12,7 @@
 
 
         <label class="todoKey">Title:</label>
-        <input type="text" name="titel" value="{{valOrEmpty note.title}}" class="todoValue">
+        <input type="text" name="title" value="{{valOrEmpty note.title}}" class="todoValue">
 
         <label class="todoKey">Description:</label>
         <textarea name="description" class="todoValue">{{valOrEmpty note.description}}</textarea>
@@ -29,10 +29,10 @@
 
         <div class="todoValue">
             {{#if _id}}
-                <button type="submit" name="_id" value="{{_id}}">Save</button>
+                <button type="submit" name="save" value="true">Save</button>
             {{else}}
-                <button type="submit" name="_id">Add</button>
-                <button type="submit" name="_id">Cancel</button>
+                <button type="submit" name="add" value="true">Add</button>
+                <button type="submit" name="cancel" value="true">Cancel</button>
             {{/if}}
         </div>
     </form>
