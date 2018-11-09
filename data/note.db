@@ -1,8 +1,11 @@
 {"_id":"2jjbRd7MUY5l5Yzx","title":"Test bla","description":"Test","date":{"$$date":1541721600000},"finished":true,"importance":1,"created":{"$$date":1541755705063}}
-{"_id":"CmT6jZHTCc9wJ85f","title":"bla","description":"blub","date":{"$$date":1541721600000},"finished":false,"importance":1,"created":{"$$date":1541757616919}}
+{"_id":"CmT6jZHTCc9wJ85f","title":"bla","description":"blub","date":{"$$date":1541721600000},"finished":true,"importance":1,"created":{"$$date":1541759371935}}
 {"_id":"HTksoev6UnBJraCR","title":"fooooo","description":"baaaaaaaaaaaaaaaaar","date":{"$$date":1541548800000},"finished":true,"importance":3,"created":{"$$date":1541758330462}}
-{"_id":"eineineinkaufen","title":"Einkaufen","description":"Butter\r\n6 Eier\r\n1kg Mehl\r\nHefeblock\r\nKopfsalat\r\nTomaten","date":{"$$date":1541721600000},"finished":false,"importance":1,"created":{"$$date":1541716570600}}
-{"_id":"parparparty","title":"Party2","description":"SuperDuperParty","date":{"$$date":1539388800000},"finished":false,"importance":4,"created":{"$$date":1541758018483}}
-{"title":"Debug test entry bla blubb","description":"this is just a testEntry bla blubb","finished":true,"importance":3,"date":{"$$date":1538312443153},"created":{"$$date":1538934387888},"_id":"wamiaPzElWSQ3ksX"}
-{"_id":"parparparty","title":"Party2","description":"SuperDuperParty","date":{"$$date":1539388800000},"finished":false,"importance":5,"created":{"$$date":1541759039009}}
 {"_id":"LkPDtDSpQo6gqzQY","title":"Woooow","description":"meega cool","date":{"$$date":1540857600000},"finished":false,"importance":3,"created":{"$$date":1541759057408}}
+{"_id":"eineineinkaufen","title":"Einkaufen","description":"Butter\r\n6 Eier\r\n1kg Mehl\r\nHefeblock\r\nKopfsalat\r\nTomaten","date":{"$$date":1541721600000},"finished":false,"importance":1,"created":{"$$date":1541716570600}}
+{"_id":"parparparty","title":"Party2","description":"SuperDuperParty","date":{"$$date":1539388800000},"finished":false,"importance":5,"created":{"$$date":1541759039009}}
+{"title":"Debug test entry bla blubb","description":"this is just a testEntry bla blubb","finished":true,"importance":3,"date":{"$$date":1538312443153},"created":{"$$date":1538934387888},"_id":"wamiaPzElWSQ3ksX"}
+{"_id":"xA5FE0Ov7bjqqMHJ","title":"umsverecke wichtig","description":"das isch würklich wichtig","date":{"$$date":1542672000000},"finished":false,"importance":5,"created":{"$$date":1541759289599}}
+{"_id":"wamiaPzElWSQ3ksX","title":"Debug test entry bla blubb","description":"this is just a testEntry bla blubb","date":{"$$date":1538265600000},"finished":true,"importance":3,"created":{"$$date":1541759644268}}
+{"_id":"wamiaPzElWSQ3ksX","title":"Debug test entry bla blubb","description":"this is just a testEntry bla blubb","date":{"$$date":1538265600000},"finished":true,"importance":3,"created":{"$$date":1541759702579}}
+{"_id":"wamiaPzElWSQ3ksX","title":"Debug test entry bla blubb","description":"this is just a testEntry bla blubb","date":{"$$date":1538265600000},"finished":false,"importance":3,"created":{"$$date":1541759707570}}

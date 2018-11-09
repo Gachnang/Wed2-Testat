@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express-serve-static-core";
-import {Note, bodyToNote, noteToBody, validate} from "../model/note";
+import {Note, bodyToNote, validate} from "../model/note";
 import Style from "../model/style";
 import {EditOptions} from "../views/handlebarOptions";
 import noteStore from "../model/noteStore";
@@ -38,7 +38,7 @@ export function editController(req: Request, res: Response, next: NextFunction) 
       return;
     }
 
-    noteStore.update(note, (err: Error, noteResponse: Note) => {
+    noteStore.update(note, (err: Error) => {
       if (err) {
         // save failed.. re-render
           renderContent(req, res, note);

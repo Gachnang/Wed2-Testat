@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express-serve-static-core";
+import { Request, Response } from "express-serve-static-core";
 import {Note, bodyToNote, validate} from "../model/note";
 import Style from "../model/style";
 import {EditOptions} from "../views/handlebarOptions";
@@ -17,7 +17,7 @@ function renderContent(req : Request, res : Response) {
     } as EditOptions);
 }
 
-export function addController(req: Request, res: Response, next: NextFunction) {
+export function addController(req: Request, res: Response) {
   if (req.body.cancel) {
     res.redirect('/');
     return;
@@ -34,7 +34,7 @@ export function addController(req: Request, res: Response, next: NextFunction) {
       return;
     }
 
-    noteStore.insert(note, (err: Error, noteResponse: Note) => {
+    noteStore.insert(note, (err: Error) => {
       if (err) {
         // save failed.. re-render
           renderContent(req, res);

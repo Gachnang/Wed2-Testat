@@ -37,9 +37,6 @@ export function validate(note: Note): string[] {
   if (typeof note.importance === 'undefined' || isNaN(note.importance) || note.importance < 1 || note.importance > 5) {
     ret.push("importance");
   }
-  if (typeof note.finished !== 'boolean') {
-    ret.push("finished");
-  }
   if (typeof note.created !== 'object' || isNaN(note.created.getTime())) {
     ret.push("created");
   }

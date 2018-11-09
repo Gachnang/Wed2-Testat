@@ -2,8 +2,6 @@ import * as Datastore from 'nedb';
 import {Note} from "./note";
 import Order, {getComparator} from "./order";
 
-const debug: (msg: string) => void = require('debug')('NoteStore');
-
 /**
  * The real datastore
  */
@@ -52,7 +50,7 @@ class NoteStore {
       callback(new Error('Cant update note with unset id.'), null);
     } else {
       this._db.update({_id: note._id}, note, {multi: false},
-        (err: Error, numberOfUpdated, affectedDocuments: Note[], upsert: boolean) => {
+        (err: Error, numberOfUpdated, affectedDocuments: Note[]) => {
         if (err) {
           callback(err, null);
         } else if (numberOfUpdated > 0) {

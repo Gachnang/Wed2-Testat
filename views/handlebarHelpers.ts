@@ -119,7 +119,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
 }
 
 if(!hbs.handlebars.helpers.hasOwnProperty('notesList')) {
-  hbs.handlebars.registerHelper('notesList', (notes: Note[], screenreader: boolean = false, options: any) => {
+  hbs.handlebars.registerHelper('notesList', (notes: Note[], screenreader: boolean = false) => {
     if (notes && Array.isArray(notes) && notes.length > 0) {
       let ret: string = '';
       for (let note of notes) {
@@ -133,7 +133,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('notesList')) {
 }
 
 if(!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
-  hbs.handlebars.registerHelper('notesEntry', (note: Note, screenreader: boolean = false) => {
+  hbs.handlebars.registerHelper('notesEntry', (note: Note) => {
     let ret: string = (
       '<div class="noteEntry">' +
         '<header>' +
