@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express-serve-static-core";
+import { Request, Response } from "express-serve-static-core";
 import {Note, bodyToNote, validate} from "../model/note";
 import Style from "../model/style";
 import {EditOptions} from "../views/handlebarOptions";
@@ -6,19 +6,18 @@ import noteStore from "../model/noteStore";
 
 const debug: (msg: string) => void = require('debug')('AddController');
 
-function renderContent(req : Request, res : Response, note : Note) {
+function renderContent(req : Request, res : Response) {
     res.render('edit', {
         title: 'Note Pro - Add',
         styleName: Style[req.session.style],
         screenreader: req.session.screenreader,
-        note: note,
-        error: new Error(errors.toString()),
+        note: req.body.add ? bodyToNote(req.body) : null,
         DEBUG1: JSON.stringify(req.session),
         DEBUG2: JSON.stringify(req.body)
     } as EditOptions);
 }
 
-export function addController(req: Request, res: Response, next: NextFunction) {
+export function addController(req: Request, res: Response) {
   if (req.body.cancel) {
     res.redirect('/');
     return;
@@ -30,27 +29,20 @@ export function addController(req: Request, res: Response, next: NextFunction) {
     if (errors.length > 0) {
       debug('Validation of note failed!');
 
-      renderContent(req, res, note);
+      renderContent(req, res);
       // validate failed.. re-render
       return;
     }
 
-    noteStore.insert(note, (err: Error, noteResponse: Note) => {
+    noteStore.insert(note, (err: Error) => {
       if (err) {
         // save failed.. re-render
-          renderContent(req, res, note);
+          renderContent(req, res);
       } else {
         res.redirect('/');
       }
     });
   }
-  res.render('edit', {
-    title: 'Note Pro - Add',
-    note: req.body.add ? bodyToNote(req.body) : null,
-    styleName: Style[req.session.style],
-    screenreader: req.session.screenreader,
-    DEBUG1: JSON.stringify(req.session),
-    DEBUG2: JSON.stringify(req.body)
-  } as EditOptions);
+  renderContent(req, res);
 }
 export default addController;

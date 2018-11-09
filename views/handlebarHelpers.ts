@@ -79,7 +79,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('filter')) {
               '<form method="get">' +
                 '<button type="submit" name="filter" value="true"' + (filter === true ?  ' disabled ' : '') + '>finished</button>' +
               '</form>' +
-              '<form method="get">\n' +
+              '<form method="get">' +
                 '<button type="submit" name="filter" value="false" ' + (filter === false ?  'disabled ' : '') + '>not finished</button>' +
               '</form>' +
             '</div>' +
@@ -91,15 +91,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('filter')) {
 
 if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
   hbs.handlebars.registerHelper('availableOrders', (currentOrder: Order, screenreader: boolean = false) => {
-    let ret: string = ''; /*(
-      '<div class="orders left">' + (
-        screenreader ? (
-          '<form method="get" id="formOrder"><label>Order:<select name="order">'
-        ) : (
-          '<label>Order:</label><div class="content">'
-        )
-      )
-    );*/
+    let ret: string = '';
 
     for (let entry in Object.keys(Order).filter(key => !isNaN(Number(Order[key])))) {
       if (!screenreader && Order[entry].endsWith('Desc')) {
@@ -126,14 +118,8 @@ if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
   });
 }
 
-if(!hbs.handlebars.helpers.hasOwnProperty('ifTwo')) {
-  hbs.handlebars.registerHelper('ifTwo', (conditionOne: any, conditionTwo: any, options: any) => {
-    return (conditionOne && conditionTwo) ? options.fn(this) : options.inverse(this);
-  });
-}
-
 if(!hbs.handlebars.helpers.hasOwnProperty('notesList')) {
-  hbs.handlebars.registerHelper('notesList', (notes: Note[], screenreader: boolean = false, options: any) => {
+  hbs.handlebars.registerHelper('notesList', (notes: Note[], screenreader: boolean = false) => {
     if (notes && Array.isArray(notes) && notes.length > 0) {
       let ret: string = '';
       for (let note of notes) {
@@ -147,7 +133,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('notesList')) {
 }
 
 if(!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
-  hbs.handlebars.registerHelper('notesEntry', (note: Note, screenreader: boolean = false) => {
+  hbs.handlebars.registerHelper('notesEntry', (note: Note) => {
     let ret: string = (
       '<div class="noteEntry">' +
         '<header>' +

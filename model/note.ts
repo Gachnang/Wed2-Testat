@@ -23,10 +23,6 @@ export function bodyToNote(obj: any): Note {
   return ret;
 }
 
-export function noteToBody(body: any, note: Note): any {
-  return Object.assign(body, note);
-}
-
 export function validate(note: Note): string[] {
   let ret = [];
   if (typeof note.title === 'undefined' || note.title.length === 0) {
@@ -40,9 +36,6 @@ export function validate(note: Note): string[] {
   }
   if (typeof note.importance === 'undefined' || isNaN(note.importance) || note.importance < 1 || note.importance > 5) {
     ret.push("importance");
-  }
-  if (typeof note.finished !== 'boolean') {
-    ret.push("finished");
   }
   if (typeof note.created !== 'object' || isNaN(note.created.getTime())) {
     ret.push("created");

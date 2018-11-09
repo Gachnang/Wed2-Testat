@@ -1,10 +1,22 @@
 import { NextFunction, Request, Response } from "express-serve-static-core";
-import {Note, bodyToNote, noteToBody, validate} from "../model/note";
+import {Note, bodyToNote, validate} from "../model/note";
 import Style from "../model/style";
 import {EditOptions} from "../views/handlebarOptions";
 import noteStore from "../model/noteStore";
 
 const debug: (msg: string) => void = require('debug')('EditController');
+
+function renderContent(req : Request, res : Response, note : Note) {
+    res.render('edit', {
+        _id: req.params._id,
+        title: 'Note Pro - Edit',
+        styleName: Style[req.session.style],
+        screenreader: req.session.screenreader,
+        note: note,
+        DEBUG1: JSON.stringify(req.session),
+        DEBUG2: JSON.stringify(req.body)
+    } as EditOptions);
+}
 
 export function editController(req: Request, res: Response, next: NextFunction) {
   if (req.body.cancel) {
@@ -22,32 +34,14 @@ export function editController(req: Request, res: Response, next: NextFunction) 
       debug('Validation of note failed!');
 
       // validate failed.. re-render
-      res.render('edit', {
-        _id: req.params._id,
-        title: 'Note Pro - Edit',
-        styleName: Style[req.session.style],
-        screenreader: req.session.screenreader,
-        note: note,
-        error: new Error(errors.toString()),
-        DEBUG1: JSON.stringify(req.session),
-        DEBUG2: JSON.stringify(req.body)
-      } as EditOptions);
+        renderContent(req, res, note);
       return;
     }
 
-    noteStore.update(note, (err: Error, noteResponse: Note) => {
+    noteStore.update(note, (err: Error) => {
       if (err) {
         // save failed.. re-render
-        res.render('edit', {
-          _id: req.params._id,
-          title: 'Note Pro - Edit',
-          styleName: Style[req.session.style],
-          screenreader: req.session.screenreader,
-          note: note,
-          error: err,
-          DEBUG1: JSON.stringify(req.session),
-          DEBUG2: JSON.stringify(req.body)
-        } as EditOptions);
+          renderContent(req, res, note);
       } else {
         res.redirect('/');
       }
@@ -59,28 +53,13 @@ export function editController(req: Request, res: Response, next: NextFunction) 
         if (err) {
           next(err);
         } else {
-          res.render('edit', {
-            _id: req.params._id,
-            title: 'Note Pro - Edit',
-            styleName: Style[req.session.style],
-            screenreader: req.session.screenreader,
-            note: note,
-            DEBUG1: JSON.stringify(req.session),
-            DEBUG2: JSON.stringify(req.body)
-          } as EditOptions);
+            renderContent(req, res, note);
         }
       });
       return;
     }
   }
 
-  res.render('edit', {
-    title: 'Note Pro - Add',
-    styleName: Style[req.session.style],
-    screenreader: req.session.screenreader,
-    note: {},
-    DEBUG1: JSON.stringify(req.session),
-    DEBUG2: JSON.stringify(req.body)
-  } as EditOptions);
+  renderContent(req, res, null);
 }
 export default editController;

@@ -74,7 +74,5 @@ function setCookie(res: Response, session: string) {
   // Set the cookie with the JSON
   res.setHeader('Set-Cookie', cookie.serialize('session', session, {
     httpOnly: true,
-    // todo only for browser-session! notSet = session?
-    //maxAge: 60 * 60 // 1 hour
   }));
 }
