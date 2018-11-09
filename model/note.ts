@@ -23,10 +23,6 @@ export function bodyToNote(obj: any): Note {
   return ret;
 }
 
-export function noteToBody(body: any, note: Note): any {
-  return Object.assign(body, note);
-}
-
 export function validate(note: Note): string[] {
   let ret = [];
   if (typeof note.title === 'undefined' || note.title.length === 0) {
