@@ -79,7 +79,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('filter')) {
               '<form method="get">' +
                 '<button type="submit" name="filter" value="true"' + (filter === true ?  ' disabled ' : '') + '>finished</button>' +
               '</form>' +
-              '<form method="get">\n' +
+              '<form method="get">' +
                 '<button type="submit" name="filter" value="false" ' + (filter === false ?  'disabled ' : '') + '>not finished</button>' +
               '</form>' +
             '</div>' +
@@ -91,15 +91,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('filter')) {
 
 if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
   hbs.handlebars.registerHelper('availableOrders', (currentOrder: Order, screenreader: boolean = false) => {
-    let ret: string = ''; /*(
-      '<div class="orders left">' + (
-        screenreader ? (
-          '<form method="get" id="formOrder"><label>Order:<select name="order">'
-        ) : (
-          '<label>Order:</label><div class="content">'
-        )
-      )
-    );*/
+    let ret: string = '';
 
     for (let entry in Object.keys(Order).filter(key => !isNaN(Number(Order[key])))) {
       if (!screenreader && Order[entry].endsWith('Desc')) {
@@ -123,12 +115,6 @@ if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
     return new hbs.handlebars.SafeString(ret + (
       screenreader ? '</select></label></form><button type="submit" form="formOrder">Apply order</button>' : ''
     ));
-  });
-}
-
-if(!hbs.handlebars.helpers.hasOwnProperty('ifTwo')) {
-  hbs.handlebars.registerHelper('ifTwo', (conditionOne: any, conditionTwo: any, options: any) => {
-    return (conditionOne && conditionTwo) ? options.fn(this) : options.inverse(this);
   });
 }
 
