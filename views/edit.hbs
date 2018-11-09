@@ -25,7 +25,11 @@
         <input type="date" name="date" value="{{valOrEmpty note.date}}" class="todoValue">
 
         <label class="todoValue">Finished
-            <input type="checkbox" name="finished" value="{{valOrEmpty note.finished}}" class="todoValue"></label>
+            <input type="checkbox" name="finished" class="todoValue"
+{{#if note.finished}}
+  checked
+{{/if}}
+            ></label>
 
         <div class="todoValue">
             {{#if _id}}
