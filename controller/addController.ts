@@ -6,12 +6,12 @@ import noteStore from "../model/noteStore";
 
 const debug: (msg: string) => void = require('debug')('AddController');
 
-function renderContent(req : Request, res : Response, note : Note) {
+function renderContent(req : Request, res : Response) {
     res.render('edit', {
         title: 'Note Pro - Add',
         styleName: Style[req.session.style],
         screenreader: req.session.screenreader,
-        note: note,
+        note: req.body.add ? bodyToNote(req.body) : null,
         DEBUG1: JSON.stringify(req.session),
         DEBUG2: JSON.stringify(req.body)
     } as EditOptions);
@@ -29,7 +29,7 @@ export function addController(req: Request, res: Response, next: NextFunction) {
     if (errors.length > 0) {
       debug('Validation of note failed!');
 
-      renderContent(req, res, note);
+      renderContent(req, res);
       // validate failed.. re-render
       return;
     }
@@ -37,19 +37,12 @@ export function addController(req: Request, res: Response, next: NextFunction) {
     noteStore.insert(note, (err: Error, noteResponse: Note) => {
       if (err) {
         // save failed.. re-render
-          renderContent(req, res, note);
+          renderContent(req, res);
       } else {
         res.redirect('/');
       }
     });
   }
-  res.render('edit', {
-    title: 'Note Pro - Add',
-    note: req.body.add ? bodyToNote(req.body) : null,
-    styleName: Style[req.session.style],
-    screenreader: req.session.screenreader,
-    DEBUG1: JSON.stringify(req.session),
-    DEBUG2: JSON.stringify(req.body)
-  } as EditOptions);
+  renderContent(req, res);
 }
 export default addController;
