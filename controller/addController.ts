@@ -12,7 +12,6 @@ function renderContent(req : Request, res : Response, note : Note) {
         styleName: Style[req.session.style],
         screenreader: req.session.screenreader,
         note: note,
-        error: new Error(errors.toString()),
         DEBUG1: JSON.stringify(req.session),
         DEBUG2: JSON.stringify(req.body)
     } as EditOptions);
