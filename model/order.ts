@@ -41,11 +41,10 @@ export function getComparator(order: Order) : (a: Note, b: Note) => number | nul
     };
 
     case Order.titleDesc: return (a: Note, b: Note) => {
-      //return a.title.localeCompare(b.title);
-      return a.title === b.title ? 0 : a.title > b.title ? 1 : -1;
+      return a.title.localeCompare(b.title);
     };
     case Order.titleAsc: return (a: Note, b: Note) => {
-      return a.title === b.title ? 0 : a.title > b.title ? -1 : 1;
+        return b.title.localeCompare(a.title);
     };
 
     default: return null;
