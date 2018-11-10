@@ -6,8 +6,8 @@ html {
 }
 
 h1 {
-    color: grey;
-    border-bottom: solid 2px grey;
+    color: var(--title-color);
+    border-bottom: solid 2px var(--title-color);
 }
 
 #head-grid {

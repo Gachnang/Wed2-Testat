@@ -1,6 +1,7 @@
 html {
     --bg-color: rgb(160,160,255);
     --text-color: rgb(0, 0, 60);
+    --title-color: rgb(0, 0, 80);
 
     --btn-border-color: rgb(60, 60, 200);
     --btn-bg-color: rgb(100,100,220);
