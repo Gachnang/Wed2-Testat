@@ -1,5 +1,9 @@
 <header>
-    <h1>Add new todo</h1>
+    {{#if _id}}
+        <h1>Edit todo</h1>
+    {{else}}
+        <h1>Add new todo</h1>
+    {{/if}}
 </header>
 <main>
 
