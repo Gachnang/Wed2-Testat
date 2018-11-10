@@ -454,6 +454,14 @@ label {
     font-weight: bold;
 }
 
+input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid green;
+}
+
 @media (min-width: 400px) {
     html { font-size: 13px; }
 

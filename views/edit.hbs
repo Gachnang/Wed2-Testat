@@ -16,20 +16,25 @@
 
 
         <label class="todoKey">Title:</label>
-        <input type="text" name="title" value="{{valOrEmpty note.title}}" class="todoValue">
+        <input type="text" name="title" value="{{valOrEmpty note.title}}" class="todoValue" placeholder="add title" required>
 
         <label class="todoKey">Description:</label>
-        <textarea name="description" class="todoValue">{{valOrEmpty note.description}}</textarea>
+        <textarea name="description" class="todoValue" placeholder="add description" required>{{valOrEmpty note.description}}</textarea>
 
         <label class="todoKey">Importance:</label>
-        <input type="number" max="5" min="1" name="importance"
-               value="{{valOrEmpty note.importance}}" class="todoValue">
+        {{#if _id}}
+            <input type="number" max="5" min="1" name="importance"
+                   value="{{valOrEmpty note.importance}}" class="todoValue" required>
+        {{else}}
+            <input type="number" max="5" min="1" name="importance"
+                   value="1" class="todoValue" required>
+        {{/if}}
 
         <label class="todoKey">Date:</label>
         {{#if _id}}
-            <input type="date" name="date" value="{{valOrEmpty note.date}}" class="todoValue">
+            <input type="date" name="date" value="{{valOrEmpty note.date}}" class="todoValue" required>
         {{else}}
-            <input type="date" name="date" value="2018-11-12" class="todoValue">
+            <input type="date" name="date" value="2018-11-12" class="todoValue" required>
         {{/if}}
 
         <label class="todoValue">Finished
@@ -45,7 +50,7 @@
             {{else}}
                 <button type="submit" name="add" value="true">Add</button>
             {{/if}}
-            <button type="submit" name="cancel" value="true">Cancel</button>
+            <button type="submit" name="cancel" value="true" formnovalidate>Cancel</button>
         </div>
     </form>
     <div>
