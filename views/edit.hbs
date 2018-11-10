@@ -19,16 +19,16 @@
 
         <label class="todoKey">Importance:</label>
         <input type="number" max="5" min="1" name="importance"
-                                     value="{{valOrEmpty note.importance}}" class="todoValue">
+               value="{{valOrEmpty note.importance}}" class="todoValue">
 
         <label class="todoKey">Date:</label>
         <input type="date" name="date" value="{{valOrEmpty note.date}}" class="todoValue">
 
         <label class="todoValue">Finished
             <input type="checkbox" name="finished" class="todoValue"
-{{#if note.finished}}
-  checked
-{{/if}}
+                {{#if note.finished}}
+                   checked
+                {{/if}}
             ></label>
 
         <div class="todoValue">
@@ -36,8 +36,8 @@
                 <button type="submit" name="save" value="true">Save</button>
             {{else}}
                 <button type="submit" name="add" value="true">Add</button>
-                <button type="submit" name="cancel" value="true">Cancel</button>
             {{/if}}
+            <button type="submit" name="cancel" value="true">Cancel</button>
         </div>
     </form>
     <div>
