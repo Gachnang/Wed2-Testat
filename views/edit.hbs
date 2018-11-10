@@ -26,7 +26,11 @@
                value="{{valOrEmpty note.importance}}" class="todoValue">
 
         <label class="todoKey">Date:</label>
-        <input type="date" name="date" value="{{valOrEmpty note.date}}" class="todoValue">
+        {{#if _id}}
+            <input type="date" name="date" value="{{valOrEmpty note.date}}" class="todoValue">
+        {{else}}
+            <input type="date" name="date" value="2018-11-12" class="todoValue">
+        {{/if}}
 
         <label class="todoValue">Finished
             <input type="checkbox" name="finished" class="todoValue"
