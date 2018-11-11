@@ -441,11 +441,13 @@ span.importanceSymbol {
     grid-column: 1 / 3;
 }
 
-input:invalid {
+input:invalid,
+textarea:invalid {
     border: 0.2rem solid red;
 }
 
-input:valid {
+input:valid,
+textarea:valid  {
     border: 0.2rem solid green;
 }
 
