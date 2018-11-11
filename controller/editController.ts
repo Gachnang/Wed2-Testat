@@ -58,8 +58,8 @@ export function editController(req: Request, res: Response, next: NextFunction) 
       });
       return;
     }
+  } else {
+    renderContent(req, res, null);
   }
-
-  renderContent(req, res, null);
 }
 export default editController;

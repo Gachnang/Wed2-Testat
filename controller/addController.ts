@@ -42,7 +42,8 @@ export function addController(req: Request, res: Response) {
         res.redirect('/');
       }
     });
+  } else {
+    renderContent(req, res);
   }
-  renderContent(req, res);
 }
 export default addController;
