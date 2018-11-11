@@ -10,79 +10,6 @@ h1 {
     border-bottom: solid 2px var(--title-color);
 }
 
-#head-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.createBtn {
-    grid-column: 1 / 3;
-}
-
-.styleBtn {
-    grid-column: 1 / 3;
-}
-
-.filterBtn {
-    grid-column: 1 / 3;
-}
-
-.showBtn {
-    grid-column: 1 / 3;
-}
-
-@media (min-width: 400px) {
-    html { font-size: 13px; }
-
-    .createBtn {
-        grid-column: 1 ;
-    }
-
-    .styleBtn {
-        grid-column: 2;
-        justify-self: end;
-    }
-
-    .filterBtn {
-        grid-column: 1 / 3;
-    }
-
-    .showBtn {
-        grid-column: 1 / 3;
-    }
-
-
-}
-
-@media (min-width: 740px) {
-    html { font-size: 15px; }
-    .createBtn {
-        grid-column: 1;
-    }
-
-    .styleBtn {
-        grid-column: 2;
-    }
-
-    .filterBtn {
-        grid-column: 1;
-    }
-
-    .showBtn {
-        grid-column: 2;
-        justify-self: end;
-    }
-}
-
-/* layout in horizontal line (row) */
-body > header > div,
-body > main > div {
-    display: block;
-    clear: both;
-    padding-top: 0.5rem;
-    width: 100%
-}
-
 form {
     display: inline-block;
 }
@@ -91,12 +18,79 @@ header, main {
     display: grid;
 }
 
+#head-grid {
+    display: grid;
+    grid-gap: 0.2rem;
+    grid-template-columns: 1fr;
+}
+
+.createBtn {
+    width: 100%;
+    grid-column: 1 / 1;
+}
+
+.styleBtn {
+    width: 100%;
+    grid-column: 2 / 1;
+}
+
+.filterBtn {
+    width: 100%;
+    display: grid;
+    grid-column: 3 / 1;
+}
+
+.showBtn {
+    width: 100%;
+    grid-column: 4 / 1;
+}
+
+@media (min-width: 560px) {
+    html {
+        font-size: 13px;
+    }
+
+    .createBtn {
+        width: auto;
+    }
+
+    .styleBtn {
+        width: auto;
+        grid-column: 2 / 2;
+        justify-self: end;
+    }
+
+    .filterBtn {
+        display: block;
+        width: auto;
+        grid-column: 1 / 2;
+    }
+
+    .showBtn {
+        width: auto;
+        grid-column: 2 / 2;
+    }
+}
+
+@media (min-width: 650px) {
+    html { font-size: 15px; }
+
+    .showBtn {
+        grid-column: 2 / 2;
+        justify-self: end;
+    }
+}
+
 /* noteEntry *****/
 .noNotes {
     text-align: center;
     color: var(--title-color);
     font-weight: bold;
     font-size: 2em;
+    margin-top: 0.75rem;
+    padding-top: 0.25rem;
+    display: inline-block;
+    border-top: var(--btn-border-color) solid 0.1rem;
 }
 
 .noteEntry .importance {
@@ -124,7 +118,7 @@ header, main {
     grid-gap: 0.2rem;
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 560px) {
     .noteEntry > header,
     .noteEntry > main {
         grid-template-columns: 8rem auto fit-content(2rem);
@@ -143,17 +137,14 @@ header, main {
     }
 }
 
-
-
-
-
-
+/* Labels **************************************************************/
 label {
     display: inline-block;
     margin-right: 0.2rem;
+    font-weight: bold;
 }
 
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 650px) {
     label {
         display: block;
     }
@@ -182,7 +173,17 @@ textarea {
     background-color: var(--btn-bg-color);
     border-color: var(--btn-border-color);
     min-height: 2rem;
-    min-width: 6rem;
+    min-width: 8rem;
+    width: 100%;
+}
+
+@media only screen and (min-width: 560px) {
+    input,
+    select,
+    button,
+    textarea {
+        width: auto;
+    }
 }
 
 button[disabled],
@@ -206,7 +207,7 @@ select[disabled] {
     background-color: var(--btn-bg-color-disabled);
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 560px) {
     select {
         display: block;
         width: 100%;
@@ -249,8 +250,7 @@ div.comboBox .content:hover ~ button::after,
 div.comboBox .content:active ~ button::after,
 div.comboBox .content:focus ~ button::after,
 div.comboBox:active button::after,
-div.comboBox:focus button::after /*,
-div.comboBox:focus-within button::after*/ {
+div.comboBox:focus button::after {
     transform: rotate(225deg);
     -webkit-transform: rotate(225deg);
     top: calc(50% - 0.2rem);
@@ -275,9 +275,7 @@ div.comboBox .content {
 
 /* keeps content of comboBox visible */
 div.comboBox .content:hover,
-div.comboBox:active .content/*,
-div.comboBox:focus .content ,
-div.comboBox:focus-within .content*/ {
+div.comboBox:active .content {
     display: block;
     visibility: visible;
 }
@@ -309,7 +307,7 @@ div.comboBox button[disabled] {
     min-width: 7.5rem;
 }
 
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 650px) {
     .orders,
     .orders .content,
     .orders form,
@@ -340,12 +338,9 @@ button[data-ordertype="Asc"]::before {
 /* noteEntry ***********************************************************/
 .noteEntry {
     margin-top: 0.75rem;
+    padding-top: 0.25rem;
     display: inline-block;
     border-top: var(--btn-border-color) solid 0.1rem;
-}
-.noteEntry > main,
-.noteEntry > header {
-    clear: both;
 }
 
 .noteEntryTitle {
@@ -395,19 +390,6 @@ button[data-ordertype="Asc"]::before {
 }
 
 /* importance **********************************************************/
-/* test
-.importance {
-    display: table;
-    height: 2rem;
-}
-
-.importance .importanceSymbol {
-    display: table-cell;
-}*/
-
-.importance {
-}
-
 span.importanceSymbol {
     display: inline-block;
     -moz-transform: rotate(10deg);
@@ -455,12 +437,6 @@ span.importanceSymbol {
     grid-column: 1 / 3;
 }
 
-
-
-label {
-    font-weight: bold;
-}
-
 input:invalid {
     border: 2px solid red;
 }
@@ -469,9 +445,8 @@ input:valid {
     border: 2px solid green;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 560px) {
     html { font-size: 13px; }
-
 
     .todoKey {
         grid-column: 1 / 2;
@@ -481,6 +456,4 @@ input:valid {
     .todoValue{
         grid-column: 2 / 3;
     }
-
-
 }
