@@ -176,6 +176,9 @@ textarea {
     min-width: 8rem;
     width: 100%;
 }
+input[type='checkbox'] {
+    min-width: 2rem;
+}
 
 @media only screen and (min-width: 560px) {
     input,
@@ -425,8 +428,8 @@ span.importanceSymbol {
 /* new todo_styles *****************************************************/
 .todoNew {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-gap: 16px;
+    grid-template-columns: min-content 3fr;
+    grid-gap: 0.5rem;
 }
 
 .todoKey {
@@ -434,15 +437,16 @@ span.importanceSymbol {
 }
 
 .todoValue{
+    vertical-align: middle;
     grid-column: 1 / 3;
 }
 
 input:invalid {
-    border: 2px solid red;
+    border: 0.2rem solid red;
 }
 
 input:valid {
-    border: 2px solid green;
+    border: 0.2rem solid green;
 }
 
 @media (min-width: 560px) {
@@ -451,6 +455,7 @@ input:valid {
     .todoKey {
         grid-column: 1 / 2;
         justify-self: end;
+        line-height: 2rem;
     }
 
     .todoValue{

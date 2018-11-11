@@ -37,12 +37,12 @@
             <input type="date" name="date" value="2018-11-12" class="todoValue" required>
         {{/if}}
 
-        <label class="todoValue">Finished
-            <input type="checkbox" name="finished" class="todoValue"
-                {{#if note.finished}}
-                   checked
-                {{/if}}
-            ></label>
+        <label class="todoKey">Finished:</label>
+        <input class="todoValue" type="checkbox" name="finished" class="todoValue"
+          {{#if note.finished}}
+            checked
+          {{/if}}
+        >
 
         <div class="todoValue">
             {{#if _id}}
@@ -53,6 +53,7 @@
             <button type="submit" name="cancel" value="true" formnovalidate>Cancel</button>
         </div>
     </form>
+  <!--
     <div>
         <h3>DEBUG1:</h3>
         {{DEBUG1}}
@@ -62,4 +63,5 @@
         <h3>DEBUG2</h3>
         {{DEBUG2}}
     </div>
+   -->
 </main>
