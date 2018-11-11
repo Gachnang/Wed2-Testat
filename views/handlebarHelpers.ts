@@ -15,6 +15,18 @@ if(!hbs.handlebars.helpers.hasOwnProperty('valOrEmpty')) {
   });
 }
 
+if(!hbs.handlebars.helpers.hasOwnProperty('valOrToday')) {
+  hbs.handlebars.registerHelper('valOrToday', (val: any) => {
+    if (typeof val === 'undefined' || val === null) {
+      val = new Date();
+    }
+    if (typeof val === 'object' && !isNaN((val as Date).getTime())) {
+      return new hbs.handlebars.SafeString((val as Date).toISOString().substring(0, 10));
+    }
+    return new hbs.handlebars.SafeString(val.toString());
+  });
+}
+
 if(!hbs.handlebars.helpers.hasOwnProperty('availableStyles')) {
   hbs.handlebars.registerHelper('availableStyles', (styleName: string, screenreader: boolean = false) => {
     let ret: string = (
