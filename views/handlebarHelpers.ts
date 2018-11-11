@@ -91,7 +91,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('filter')) {
 
 if(!hbs.handlebars.helpers.hasOwnProperty('availableOrders')) {
   hbs.handlebars.registerHelper('availableOrders', (currentOrder: Order, screenreader: boolean = false) => {
-    let ret: string = '';
+    let ret: string = '<label>Order:</label>';
 
     for (let entry in Object.keys(Order).filter(key => !isNaN(Number(Order[key])))) {
       if (!screenreader && Order[entry].endsWith('Desc')) {
