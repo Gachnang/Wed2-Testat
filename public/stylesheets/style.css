@@ -92,6 +92,13 @@ header, main {
 }
 
 /* noteEntry *****/
+.noNotes {
+    text-align: center;
+    color: var(--title-color);
+    font-weight: bold;
+    font-size: 2em;
+}
+
 .noteEntry .importance {
     text-align: right;
     white-space: nowrap;
