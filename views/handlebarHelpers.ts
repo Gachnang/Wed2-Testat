@@ -17,7 +17,7 @@ if(!hbs.handlebars.helpers.hasOwnProperty('valOrEmpty')) {
 
 if(!hbs.handlebars.helpers.hasOwnProperty('valOrToday')) {
   hbs.handlebars.registerHelper('valOrToday', (val: any) => {
-    if (typeof val === 'undefined' || val === null) {
+    if (typeof val === 'undefined' || val === null || isNaN((val as Date).getTime())) {
       val = new Date();
     }
     if (typeof val === 'object' && !isNaN((val as Date).getTime())) {

@@ -6,60 +6,55 @@ import noteStore from "../model/noteStore";
 
 const debug: (msg: string) => void = require('debug')('EditController');
 
-function renderContent(req : Request, res : Response, note : Note) {
+export abstract class EditController {
+  static renderContent(req: Request, res: Response, note: Note) {
     res.render('edit', {
-        _id: req.params._id,
-        title: 'Note Pro - Edit',
-        styleName: Style[req.session.style],
-        screenreader: req.session.screenreader,
-        note: note,
-        DEBUG1: JSON.stringify(req.session),
-        DEBUG2: JSON.stringify(req.body)
+      _id: req.params._id,
+      title: 'Note Pro - Edit',
+      styleName: Style[req.session.style],
+      screenreader: req.session.screenreader,
+      note: bodyToNote(note),
+      DEBUG1: JSON.stringify(req.session),
+      DEBUG2: JSON.stringify(req.body)
     } as EditOptions);
-}
+  }
 
-export function editController(req: Request, res: Response, next: NextFunction) {
-  if (req.body.cancel) {
-    res.redirect('/');
-    return;
-  } else if (req.method === 'POST' && req.params._id && req.body.save) {
-    let note: Note = bodyToNote(req.body);
-    if (req.params._id) {
-      note._id = req.params._id;
-    }
-
-    // HTML should check values before updating, but we do it twice:
-    let errors = validate(note);
-    if (errors.length > 0) {
-      debug('Validation of note failed!');
-
-      // validate failed.. re-render
-        renderContent(req, res, note);
-      return;
-    }
-
-    noteStore.update(note, (err: Error) => {
+  static get(req: Request, res: Response, next: NextFunction) {
+    noteStore.get(req.params._id, (err: Error, note: Note) => {
       if (err) {
-        // save failed.. re-render
-          renderContent(req, res, note);
+        next(err);
       } else {
-        res.redirect('/');
+        EditController.renderContent(req, res, note);
       }
     });
-    return;
-  } else if (req.method === 'GET') {
-    if (req.params._id) {
-      noteStore.get(req.params._id, (err: Error, note: Note) => {
+  }
+
+  static post(req: Request, res: Response, next: NextFunction) {
+    if(req.body.save) {
+      let note: Note = bodyToNote(req.body);
+      if (req.params._id) {
+        note._id = req.params._id;
+      }
+
+      // HTML should check values before updating, but we do it twice:
+      let errors = validate(note);
+      if (errors.length > 0) {
+        debug('Validation of note failed!');
+
+        // validate failed.. re-render
+        EditController.renderContent(req, res, note);
+        return;
+      }
+
+      noteStore.update(note, (err: Error) => {
         if (err) {
-          next(err);
+          // save failed.. re-render
+          EditController.renderContent(req, res, note);
         } else {
-            renderContent(req, res, note);
+          res.redirect('/');
         }
       });
-      return;
     }
-  } else {
-    renderContent(req, res, null);
   }
 }
-export default editController;
+export default EditController;

@@ -6,44 +6,50 @@ import noteStore from "../model/noteStore";
 
 const debug: (msg: string) => void = require('debug')('AddController');
 
-function renderContent(req : Request, res : Response) {
+
+export abstract class AddController {
+  static renderContent(req: Request, res: Response) {
     res.render('edit', {
-        title: 'Note Pro - Add',
-        styleName: Style[req.session.style],
-        screenreader: req.session.screenreader,
-        note: req.body.add ? bodyToNote(req.body) : null,
-        DEBUG1: JSON.stringify(req.session),
-        DEBUG2: JSON.stringify(req.body)
+      title: 'Note Pro - Add',
+      styleName: Style[req.session.style],
+      screenreader: req.session.screenreader,
+      note: bodyToNote(req.body),
+      DEBUG1: JSON.stringify(req.session),
+      DEBUG2: JSON.stringify(req.body)
     } as EditOptions);
-}
+  }
 
-export function addController(req: Request, res: Response) {
-  if (req.body.cancel) {
-    res.redirect('/');
-    return;
-  } else if (req.body && req.body.add) {
-    // user clicked "add" btn: add the new note
-    let note: Note = bodyToNote(req.body);
-    // HTML should check values before updating, but we do it twice:
-    let errors = validate(note);
-    if (errors.length > 0) {
-      debug('Validation of note failed!');
+  static get(req: Request, res: Response) {
+    AddController.renderContent(req, res);
+  }
 
-      renderContent(req, res);
-      // validate failed.. re-render
-      return;
-    }
+  static post(req: Request, res: Response) {
+    if (req.body.cancel) {
+      res.redirect('/');
+    } else if (req.body.add) {
+      // user clicked "add" btn: add the new note
+      let note: Note = bodyToNote(req.body);
+      // HTML should check values before updating, but we do it twice:
+      let errors = validate(note);
+      if (errors.length > 0) {
+        debug('Validation of note failed!');
 
-    noteStore.insert(note, (err: Error) => {
-      if (err) {
-        // save failed.. re-render
-          renderContent(req, res);
-      } else {
-        res.redirect('/');
+        AddController.renderContent(req, res);
+        // validate failed.. re-render
+        return;
       }
-    });
-  } else {
-    renderContent(req, res);
+
+      noteStore.insert(note, (err: Error) => {
+        if (err) {
+          // save failed.. re-render
+          AddController.renderContent(req, res);
+        } else {
+          res.redirect('/');
+        }
+      });
+    } else {
+      AddController.renderContent(req, res);
+    }
   }
 }
-export default addController;
+export default AddController;
