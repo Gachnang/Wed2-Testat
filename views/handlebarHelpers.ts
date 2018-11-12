@@ -160,11 +160,11 @@ if(!hbs.handlebars.helpers.hasOwnProperty('notesEntry')) {
     ret += (
           '</div>' +
             '<div class="noteEntryTimeLeft">' + (timeLeft.value < 0 ? 'since '  + Math.abs(timeLeft.value) : 'in ' + timeLeft.value) + ' ' + timeLeft.unit + '</div>' +
-            '<h4 class="noteEntryTitle">' + note.title +'</h4>' +
+            '<h4 class="noteEntryTitle">' + encodeHTML(note.title) +'</h4>' +
           '</header>' +
           '<main>' +
             '<div class="noteEntryFinished"' + (note.finished ? 'data-finished>Finished' : '>Not finished') + '</div>' +
-            '<textarea class="noteEntryDescription" readonly>' + note.description + '</textarea>' +
+            '<textarea class="noteEntryDescription" readonly>' + encodeHTML(note.description) + '</textarea>' +
             '<div class="noteEntryEdit right">' +
             '<form method="get" action="/edit/' + note._id + '">' +
               '<button type="submit">Edit</button>' +
@@ -198,3 +198,6 @@ function getTimeLeft(date: Date): {value: number, unit: string} {
   }
 }
 
+function encodeHTML(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+}
